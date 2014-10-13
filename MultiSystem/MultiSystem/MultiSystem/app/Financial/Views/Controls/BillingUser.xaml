@@ -1,0 +1,50 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="MultiSystem.app.Financial.Views.Controls.BillingUser"
+	x:Name="Window"
+	Title="Facturacion de los servicios solicitados"
+	Width="993" Height="594"  WindowStartupLocation="CenterScreen">
+
+    <Grid x:Name="LayoutRoot" Margin="0,0,2,-6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="67"/>
+            <ColumnDefinition Width="873"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="51"/>
+            <RowDefinition Height="34.258"/>
+            <RowDefinition Height="50.687"/>
+            <RowDefinition Height="52.313"/>
+            <RowDefinition Height="299"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="270,7" TextWrapping="Wrap" VerticalAlignment="Center" Width="333" Height="37" FontWeight="Bold" FontSize="18.667" FontFamily="Arial Black" Grid.Column="1"><Run Language="es-es" Text="FACTURAR"/></TextBlock>
+        <ListView x:Name="listOfBills" Grid.Column="1" HorizontalAlignment="Left" Height="289" Margin="21,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="842">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Clave" DisplayMemberBinding="{Binding Path=keyPrice}" Width="70"/>
+                    <GridViewColumn Header="Descripción" DisplayMemberBinding="{Binding Path=descriptionPrice}" Width="200"/>
+
+                    <GridViewColumn Header="Precio real" DisplayMemberBinding="{Binding Path=amountPrice}" Width="100"/>
+                    <GridViewColumn Header="Categoria" DisplayMemberBinding="{Binding Path=type}" Width="150"/>
+
+                    <GridViewColumn Header="Motivo descuento" DisplayMemberBinding="{Binding Path=reasonDiscount}" Width="200"/>
+                    <GridViewColumn Header="Descuento" DisplayMemberBinding="{Binding Path=amountWithDiscount}" Width="100"/>
+
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+        <TextBox x:Name="namePatient" Grid.Column="1" HorizontalAlignment="Right" Height="28" Margin="0,0,461,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" KeyUp="writeName"/>
+        <Label Content="Nombre" Grid.Column="1" HorizontalAlignment="Left" Margin="7,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="200" Height="28"/>
+        <TextBox x:Name="lastNamePatient" Grid.Column="1" HorizontalAlignment="Right" Height="28" Margin="0,0,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" KeyUp="writeLastName" Grid.Row="1"/>
+        <Label Content="Apellidos" Grid.Column="1" HorizontalAlignment="Left" Margin="458,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="200" Height="28"/>
+        <Button x:Name="finishBilling" Content="Generar recibo" Width="120" Height="30" Background="#FF065523" Foreground="White" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0" VerticalAlignment="Center" Click="finishBillingAndCreateWorkBook" />
+        <TextBox x:Name="adressPatient" Grid.Column="1" HorizontalAlignment="Right" Height="28" Margin="0,0,461,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" KeyUp="writeAdress"/>
+        <Label Content="Dirección" Grid.Column="1" HorizontalAlignment="Left" Margin="7,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="200" Height="28"/>
+        <TextBox x:Name="folioPatient" Grid.Column="1" HorizontalAlignment="Right" Height="28" Margin="0,0,10,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" KeyUp="writeFolio"/>
+        <Label Content="Folio" Grid.Column="1" HorizontalAlignment="Left" Margin="458,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="200" Height="28"/>
+    </Grid>
+</Window>

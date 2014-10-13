@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4F5C6E2-38CA-4428-B8C8-CF527EE804B2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultiSystem</RootNamespace>
+    <AssemblyName>MultiSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Client.Education, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MigraDoc.DocumentObjectModel-WPF, Version=1.31.3066.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MigraDoc.DocumentObjectModel-WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering-WPF, Version=1.31.3066.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MigraDoc.Rendering-WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering-WPF, Version=1.31.3066.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MigraDoc.RtfRendering-WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\MySql.Data\v4.0_6.8.3.0__c5687fc88969c44d\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\MySql.Web\v4.0_6.8.3.0__c5687fc88969c44d\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp-WPF, Version=1.31.1789.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\PdfSharp-WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting-WPF, Version=1.31.1789.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\PdfSharp.Charting-WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Designer" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Compile Include="app\Core\System\Screen\Screener.cs" />
+    <Compile Include="app\Core\WorkBook\WorkBookHandler.cs" />
+    <Compile Include="app\Financial\Controllers\AdminController\AdminSingleton.cs" />
+    <Compile Include="app\Financial\Controllers\BillController\BillFinancialController.cs" />
+    <Compile Include="app\Financial\Controllers\BillingController\BillingController.cs" />
+    <Compile Include="app\Financial\Controllers\BillController\BillSingleton.cs" />
+    <Compile Include="app\Financial\Controllers\Login\LoginControllerFinancial2_0.cs" />
+    <Compile Include="app\Financial\Controllers\Login\LoginFinancialController.cs" />
+    <Compile Include="app\Financial\Controllers\ModalView\ModalViewHandler.cs" />
+    <Compile Include="app\Financial\Controllers\Receipt\Receipter.cs" />
+    <Compile Include="app\Financial\Controllers\Services\ServicesFinancialController.cs" />
+    <Compile Include="app\Financial\CreatorWorkBook\CreatorReportByTurn.cs" />
+    <Compile Include="app\Financial\Models\BillingModel\BillingModel.cs" />
+    <Compile Include="app\Financial\Models\Login\LoginFinancialModel.cs" />
+    <Compile Include="app\Financial\Models\Services\ServicesFinancialModel.cs" />
+    <Compile Include="app\Financial\Views\Controls\AdminGralWindowFinancial.xaml.cs">
+      <DependentUpon>AdminGralWindowFinancial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\BillingUser.xaml.cs">
+      <DependentUpon>BillingUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\RegisterService.xaml.cs">
+      <DependentUpon>RegisterService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\ReportByTurn.xaml.cs">
+      <DependentUpon>ReportByTurn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\ReprintBillingService.xaml.cs">
+      <DependentUpon>ReprintBillingService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\ServicesCRUD\AddService.xaml.cs">
+      <DependentUpon>AddService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\ServicesCRUD\EditService.xaml.cs">
+      <DependentUpon>EditService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\ServicesCRUD\EditServiceAction.xaml.cs">
+      <DependentUpon>EditServiceAction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Login\LoginFinancial.xaml.cs">
+      <DependentUpon>LoginFinancial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Main\HomeFinancialView.xaml.cs">
+      <DependentUpon>HomeFinancialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\ModalView\ModalDeleteView.xaml.cs">
+      <DependentUpon>ModalDeleteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\ModalView\ModalEditView.xaml.cs">
+      <DependentUpon>ModalEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\ModalView\ModalView.xaml.cs">
+      <DependentUpon>ModalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\ModalView\ModalViewOptions.xaml.cs">
+      <DependentUpon>ModalViewOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Controllers\Book\BookController.cs" />
+    <Compile Include="app\Library\Controllers\Singletons\BookSingletonController.cs" />
+    <Compile Include="app\Library\Controllers\Login\AdminController.cs" />
+    <Compile Include="app\Library\Controllers\Genere\GenereController.cs" />
+    <Compile Include="app\Library\Models\Book\BookModel.cs" />
+    <Compile Include="app\Library\Models\Genere\GenereModel.cs" />
+    <Compile Include="app\Library\Models\Login\AdminModel.cs" />
+    <Compile Include="app\Library\Validators\ValidatorBook.cs" />
+    <Compile Include="app\Library\Views\Book\Options\DeleteBookOptions.xaml.cs">
+      <DependentUpon>DeleteBookOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Book\Options\EditBookOptions.xaml.cs">
+      <DependentUpon>EditBookOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Book\Options\RefundBookOptions.xaml.cs">
+      <DependentUpon>RefundBookOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\AddBook.xaml.cs">
+      <DependentUpon>AddBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\AdminControl.xaml.cs">
+      <DependentUpon>AdminControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\AdminGralWindowLibrary.xaml.cs">
+      <DependentUpon>AdminGralWindowLibrary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\EditAndDeleteBook.xaml.cs">
+      <DependentUpon>EditAndDeleteBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\EditorServices.xaml.cs">
+      <DependentUpon>EditorServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\LoanBook.xaml.cs">
+      <DependentUpon>LoanBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\PrinterLibraryFormats.xaml.cs">
+      <DependentUpon>PrinterLibraryFormats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\PrivateAdminSection\AddAdminPrivateSection.xaml.cs">
+      <DependentUpon>AddAdminPrivateSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\PrivateAdminSection\addCategoryPrivateSection.xaml.cs">
+      <DependentUpon>addCategoryPrivateSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Admins\AddAdmin.xaml.cs">
+      <DependentUpon>AddAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Categorys\AddCategory.xaml.cs">
+      <DependentUpon>AddCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Categorys\DeleteCategory.xaml.cs">
+      <DependentUpon>DeleteCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Categorys\EditCategory.xaml.cs">
+      <DependentUpon>EditCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Admins\DeleteAdmin.xaml.cs">
+      <DependentUpon>DeleteAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Admins\EditAdmin.xaml.cs">
+      <DependentUpon>EditAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\RefundBooks.xaml.cs">
+      <DependentUpon>RefundBooks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Home\LibraryHome.xaml.cs">
+      <DependentUpon>LibraryHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Login\BibliotecaLogin.xaml.cs">
+      <DependentUpon>BibliotecaLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Core\BD\Connection.cs" />
+    <Compile Include="app\Core\BD\DataBase.cs" />
+    <Compile Include="app\Core\BD\IDatabase.cs" />
+    <Compile Include="app\Core\Logs\Logs.cs" />
+    <Compile Include="app\Core\System\Parameters\ParametersLogin.cs" />
+    <Compile Include="app\Library\Views\PopUp\PopUpCustom.xaml.cs">
+      <DependentUpon>PopUpCustom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Main\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="app\Financial\Views\Controls\AdminGralWindowFinancial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\BillingUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\RegisterService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\ReportByTurn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\ReprintBillingService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\ServicesCRUD\AddService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\ServicesCRUD\EditService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\ServicesCRUD\EditServiceAction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\Login\LoginFinancial.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\Main\HomeFinancialView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\ModalView\ModalDeleteView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\ModalView\ModalEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\ModalView\ModalView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\ModalView\ModalViewOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Book\Options\DeleteBookOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Book\Options\EditBookOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Book\Options\RefundBookOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\AddBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\AdminControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\AdminGralWindowLibrary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\EditAndDeleteBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\EditorServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\LoanBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\PrinterLibraryFormats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\PrivateAdminSection\AddAdminPrivateSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\PrivateAdminSection\addCategoryPrivateSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Admins\AddAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Categorys\AddCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Categorys\DeleteCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Categorys\EditCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Admins\DeleteAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\PrivateAdminSection\CRUD\Admins\EditAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\RefundBooks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Home\LibraryHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Login\BibliotecaLogin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Library\Views\PopUp\PopUpCustom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Main\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="app\Library\Views\Home\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="app\Library\Views\Home\michoacan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="app\Library\Views\Home\secretaria.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="app\Resources\Alert.png" />
+    <Resource Include="app\Resources\Error.png" />
+    <Resource Include="app\Resources\Info.png" />
+    <Resource Include="app\Resources\Success.png" />
+    <Resource Include="app\Resources\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ExcelClientPkgLib">
+      <Guid>{2AEB050F-097F-4969-8E95-685279032F9B}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="app\Resources\billetera.png" />
+    <Resource Include="app\Resources\book.png" />
+    <Resource Include="app\Resources\money.png" />
+    <Resource Include="app\Resources\wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="app\Resources\library.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

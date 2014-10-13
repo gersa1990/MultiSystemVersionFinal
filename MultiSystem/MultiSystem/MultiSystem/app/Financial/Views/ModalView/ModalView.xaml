@@ -1,0 +1,40 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="MultiSystem.app.Financial.View.ModalView.ModalViewFinancial"
+	x:Name="Window"
+	   Title="Agregar servicio" Height="400" Width="450" ResizeMode="NoResize" Icon="/MultiSystem;component/app/Library/Views/Home/michoacan.png" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="207*"/>
+            <ColumnDefinition Width="59*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="37"/>
+            <RowDefinition Height="61"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="49.333"/>
+            <RowDefinition Height="19.667"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="tittle"  Content="     SE AGREGARA EL SERVICIO 234-09" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="327" Height="36" Margin="1,0,0,1" FontSize="16" Foreground="#FF271F74" FontFamily="Stencil" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button x:Name="buttonAccept" Content="Aceptar" HorizontalAlignment="Right" Grid.Row="7" VerticalAlignment="Center" Width="120" Height="30" Margin="0,9,0,10" Background="#FF065523" Foreground="White" Grid.Column="2" Click="executeActionNew"/>
+        <Button x:Name="cancelActionButton" Content="Cancelar" HorizontalAlignment="Right" Grid.Row="7" VerticalAlignment="Center" Width="120" Height="30" Margin="0,9,0,10" Background="#FF890707" Foreground="White" Grid.Column="1" Click="cancelAction"/>
+        <Label Content="Cantidad" Grid.Column="1" HorizontalAlignment="Center" Margin="0" Grid.Row="2" VerticalAlignment="Center" Width="89" Height="25"/>
+        <CheckBox x:Name="switchDiscount" Content="Cuenta con algún descuento?" Grid.Column="2" HorizontalAlignment="Center" Margin="0" Grid.Row="4" VerticalAlignment="Center" Height="15" Width="177" Click="createDiscount"/>
+        <TextBox x:Name="amountService" Grid.Column="2" HorizontalAlignment="Center" Height="26" Margin="0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155" IsEnabled="False"/>
+        <Label Content="Precio real" Grid.Column="1" HorizontalAlignment="Center" Margin="16,8" Grid.Row="3" VerticalAlignment="Center" Width="89" Height="25"/>
+        <TextBox x:Name="motiveDiscount" Grid.Column="2" HorizontalAlignment="Center" Height="26" Margin="0" Grid.Row="5" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155"/>
+        <Label x:Name="labelMotiveDiscount" Content="Motivo descuento" Grid.Column="1" HorizontalAlignment="Center" Margin="0" Grid.Row="5" VerticalAlignment="Center" Width="120" Height="25"/>
+        <TextBox x:Name="amountDiscount" Grid.Column="2" HorizontalAlignment="Center" Height="26" Margin="0" Grid.Row="6" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155"/>
+        <Label x:Name="labelAmountDiscount" Content="Precio descuento" Grid.Column="1" HorizontalAlignment="Center" Margin="0" Grid.Row="6" VerticalAlignment="Center" Width="121" Height="26"/>
+        <ComboBox x:Name="manyServices" Grid.Column="2" HorizontalAlignment="Left" Margin="26,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="155"/>
+        <TextBlock x:Name="nameService" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="61" Width="308" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

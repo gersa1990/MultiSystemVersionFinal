@@ -1,0 +1,30 @@
+﻿<Window x:Class="MultiSystem.app.Library.Views.Controls.PrivateAdminSection.CRUD.DeleteAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Agregar categoria para los libros" Height="300" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="29"/>
+            <ColumnDefinition Width="220*"/>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="22"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="58"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="167"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="Black" Grid.Row="0" HorizontalAlignment="Left" Height="57" Stroke="Black" VerticalAlignment="Bottom" Width="493" Grid.ColumnSpan="4" Margin="0,0,-1,1"/>
+        <Label HorizontalAlignment="Left" Margin="135,29,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="        ELIMINAR ADMINISTRADOR" HorizontalAlignment="Left" Margin="61,13,0,0" VerticalAlignment="Top" Width="333" Grid.Column="1" Grid.ColumnSpan="2" Foreground="#FFFDFDFD" FontSize="21.333"/>
+        <Button Content="Eliminar" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="4" VerticalAlignment="Center" Width="120" Height="25" Background="#FF065523" Foreground="White" Click="deleteAdmin"/>
+        <Button Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" VerticalAlignment="Center" Width="120" Height="25" Foreground="White" Background="#FF890707" Click="closeWindowDeleteAdmin"/>
+        <Label Content="Está seguro que desea eliminar al administrador: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,5.5,0,5.5" Grid.Row="1" VerticalAlignment="Center" Width="421" Height="25" Grid.ColumnSpan="2"/>
+        <Label x:Name="adminnistratorToDelete" Content="Descripción" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5.5,0,5.5" Grid.Row="2" VerticalAlignment="Center" Width="421" Height="25" Grid.ColumnSpan="2"/>
+
+    </Grid>
+    
+</Window>

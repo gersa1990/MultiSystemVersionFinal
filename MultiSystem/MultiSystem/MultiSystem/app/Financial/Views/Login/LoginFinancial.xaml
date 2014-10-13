@@ -1,0 +1,43 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="MultiSystem.app.Financial.views.Login.LoginFinancial"
+	x:Name="Window"
+	Title="LoginFinancial"
+	Width="640" 
+    Height="480" 
+    WindowStartupLocation="CenterScreen" 
+    ResizeMode="NoResize" WindowStyle="ToolWindow">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="50*"/>
+			<ColumnDefinition Width="99*"/>
+			<ColumnDefinition Width="146*"/>
+			<ColumnDefinition Width="292*"/>
+			<ColumnDefinition Width="50*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="63*"/>
+			<RowDefinition Height="110*"/>
+			<RowDefinition Height="45*"/>
+			<RowDefinition Height="45*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="133*"/>
+		</Grid.RowDefinitions>
+
+		<TextBox x:Name="userNameFinancial" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="206"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="377.15,239.661,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+		
+		<Rectangle Fill="Black" HorizontalAlignment="Left" Height="60" Stroke="Black" VerticalAlignment="Top" Width="634" Grid.ColumnSpan="5"/>
+		<Label x:Name="labelTittleLibrary" Content="Para poder entrar necesitas tener usuario y contraseña." Grid.Row="0" FontFamily="MS Reference Sans Serif" Cursor="None" Margin="10,10,10,1.16" HorizontalAlignment="Center" VerticalAlignment="Center" Height="52.688" Foreground="White" FontSize="18" Width="514.47" Grid.Column="1" Grid.ColumnSpan="3"/>
+		<PasswordBox x:Name="passwordFinancialNew" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" Width="206" Margin="0" KeyUp="writePasswordEncrypted"/>
+		<Label Content="Usuario" Grid.Column="2" HorizontalAlignment="Center" Margin="0" Grid.Row="2" VerticalAlignment="Center" Width="106.565"/>
+		<Label Content="Contraseña" Grid.Column="2" HorizontalAlignment="Center" Margin="19.374,9.645,19.374,9.999" Grid.Row="3" VerticalAlignment="Center" Width="106.565"/>
+		<Button Content="Cancelar" Grid.Column="3" HorizontalAlignment="Left" Margin="0" Grid.Row="4" VerticalAlignment="Center" Width="100" Background="#FF890707" Foreground="White" FontSize="13.333" Height="25" Click="cancelAction"/>
+		<Button Content="Entrar" Grid.Column="3" HorizontalAlignment="Right" Margin="0" Grid.Row="4" VerticalAlignment="Center" Width="100" Background="#FF065523" Foreground="White" FontSize="13.333" Height="25" Click="sessionIgniter"/>
+		<Label x:Name="consoleLogin" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="0,47.15,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="435.937" Height="38.96" FontSize="16" Background="#00000000" Foreground="#FFFF0D0D"/>
+		<TextBox x:Name="passWordDescencrypted_" Grid.Column="3" HorizontalAlignment="Center" Height="30" Margin="0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="206" KeyUp="writePassWordDesencrypted"/>
+		<CheckBox x:Name="checkBoxSeePassword" Content="Ver" Grid.Column="3" HorizontalAlignment="Left" Margin="267.716,15.644,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="62.673" Click="checkOrUncheckPassword"/>
+	</Grid>
+</Window>
