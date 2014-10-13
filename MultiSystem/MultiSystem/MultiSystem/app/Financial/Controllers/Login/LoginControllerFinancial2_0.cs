@@ -29,7 +29,7 @@ namespace MultiSystem.app.Financial.Controllers.Login
 
 
 
-        public bool sessionIgniter(LoginFinancial loginFinancial) 
+        public bool sessionIgniter(LoginFinancial loginFinancial, MainWindow mainWindow) 
         {
             if (!this.user.Equals("") && !this.pass.Equals("")) 
             {
@@ -90,7 +90,7 @@ namespace MultiSystem.app.Financial.Controllers.Login
                     if (adminObj.idTypeAdmin == 100) 
                     {
                         loginFinancial.Close();
-                        AdminGralWindowFinancial adminGralView = new AdminGralWindowFinancial(loginFinancial);
+                        AdminGralWindowFinancial adminGralView = new AdminGralWindowFinancial(loginFinancial, mainWindow);
                         adminGralView.Show();
                         return false;
                     }
@@ -169,5 +169,7 @@ namespace MultiSystem.app.Financial.Controllers.Login
             }
             return false;
         }
+
+       
     }
 }

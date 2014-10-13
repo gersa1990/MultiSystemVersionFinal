@@ -89,8 +89,8 @@ namespace MultiSystem.app.Financial.Controllers
 
                     if (adminObj.idTypeAdmin == 100) 
                     {
-                        AdminGralWindowFinancial obj = new AdminGralWindowFinancial(loginFinancial);
-                        obj.Show();
+                        //AdminGralWindowFinancial obj = new AdminGralWindowFinancial(loginFinancial);
+                        //obj.Show();
                         return false;
                     }
 

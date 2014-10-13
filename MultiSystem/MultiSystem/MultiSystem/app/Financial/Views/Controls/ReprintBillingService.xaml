@@ -23,8 +23,9 @@
         <Label Content="Buscar por folio o paciente" Grid.Column="1" HorizontalAlignment="Left" Margin="10,12,0,10" VerticalAlignment="Center" Width="203" Height="32" FontSize="16" Grid.Row="1"/>
         <DataGrid x:Name="dataPatientsGrid" IsReadOnly="True" AutoGenerateColumns="True" AutoGeneratingColumn="OnAutoGeneratingColumn" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="316" Width="708" MouseLeftButtonUp="selectedRowForOptions"/>
         <Button x:Name="reprintService" Content="Reimprimir" Width="120" Height="30" Background="#FF065523" Foreground="White" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center" Click="reprintServiceAction" />
-        <Button x:Name="deleteService" Content="Eliminar" Width="120" Height="30" Background="#FF890707" Foreground="White" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="deleteServiceAction" />
+        <Button x:Name="deleteService" Content="Eliminar" Width="120" Height="30" Background="#FF890707" Foreground="White" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="195,12,393,7" VerticalAlignment="Center" Click="deleteServiceAction" />
         <Button x:Name="editService" Content="Editar" Width="120" Height="30" Background="#FF1B308F" Foreground="White" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Click="editServiceAction" />
+        <Button x:Name="cancelServiceBtn" Content="Cancelar servicio" Width="148" Height="30" Background="#FF1D1616" Foreground="White" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="383,13,177,6" VerticalAlignment="Center" Click="cancelService" />
 
     </Grid>
 </UserControl>

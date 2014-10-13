@@ -5,6 +5,7 @@
         x:Name="windowLibraryHome" 
         x:Class="MultiSystem.app.Biblioteca.Views.LibraryHome"
 		xmlns:searchBook="clr-namespace:MultiSystem.app.Library.Views.Controls"
+        xmlns:adminControl="clr-namespace:MultiSystem.app.Library.Views.Controls"
         Title="Biblioteca" 
 		MinWidth="1024" 
 		MinHeight="608" 
@@ -35,7 +36,7 @@
 
             <TabItem Header="Administrador" x:Name="adminControl" >
                 <Grid Background="#FFE5E5E5">
-                    <searchBook:AdminControl />
+                    <adminControl:AdminControlWindow />
                 </Grid>
             </TabItem>
             

@@ -346,3 +346,5 @@ C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSy
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\MultiSystem.g.resources
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\MultiSystem.Properties.Resources.resources
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\MultiSystem.csproj.GenerateResource.Cache
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Library\Views\Controls\AdminControlWindow.g.cs
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Library\Views\Controls\AdminControlWindow.baml

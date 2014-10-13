@@ -81,6 +81,7 @@ namespace MultiSystem.app.Library.view.Login
 
                                 case "idAdmin":
                                     admin.idAdmin = int.Parse(field.Value);
+                                    admin.idTypeAdmin = int.Parse(field.Value);
                                     break;
 
                                 case "userNameAdmin":
@@ -111,7 +112,7 @@ namespace MultiSystem.app.Library.view.Login
                                     {
                                         admin.typeAdmin = field.Value;
                                     }
-                                    break;
+                                break;
                             }
                         }
 

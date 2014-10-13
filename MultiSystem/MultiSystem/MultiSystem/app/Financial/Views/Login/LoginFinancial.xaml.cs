@@ -45,7 +45,7 @@ namespace MultiSystem.app.Financial.views.Login
             {
                 __controllerLogin = new LoginControllerFinancial2_0(this.user, this.pass);
 
-                if (__controllerLogin.sessionIgniter(this))
+                if (__controllerLogin.sessionIgniter(this, this.home))
                 {
                     this.home.Close();
                     this.Close();

@@ -1,4 +1,5 @@
 ﻿using MultiSystem.app.Financial.Controllers.AdminController;
+using MultiSystem.app.Financial.Controllers.TypesAdmin;
 using MultiSystem.app.Financial.views.Login;
 using MultiSystem.app.Financial.Views.Main;
 using MultiSystem.app.Library.Controllers;
@@ -25,34 +26,53 @@ namespace MultiSystem.app.Financial.Views.Controls
     {
         private LoginFinancial loginFinancial;
         private HomeFinancialView homeView;
-        private AdminController controllerAdmin;
+        //private AdminController controllerAdmin;
+        private TypeOfAdminsController typeControllerAdmin;
+        private MainWindow mainWindow;
 
-        public AdminGralWindowFinancial(LoginFinancial loginFinancial)
+        public AdminGralWindowFinancial(LoginFinancial loginFinancial, MainWindow mainWindow)
         {
-            // TODO: Complete member initialization
+            typeControllerAdmin = new TypeOfAdminsController();
             this.loginFinancial = loginFinancial;
+            this.mainWindow = mainWindow;
             InitializeComponent();
-            //controllerAdmin.
-            //adminTurnFinancial.ItemsSource = 
+            this.customizeWindow();
+        }
+
+        private void customizeWindow() 
+        {
+            adminTurnFinancial.ItemsSource = typeControllerAdmin.getTypesOfAdmin();
+            adminTurnFinancial.SelectedIndex = 0;
         }
 
         private void setDataAdminFinancial(object sender, System.Windows.RoutedEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
-
             if (this.checkValidations()) 
             {
                 Admin admin = AdminSingleton.Singleton.getAdmin();
                 admin.nameAdmin = nameUserFinancial.Text;
                 admin.lastNameAdmin = lastNameUserFinancial.Text;
+                admin.idTypeAdmin = ((WorkItem)adminTurnFinancial.SelectedItem).Key;
 
+                AdminSingleton.Singleton.saveAdmin(admin);
+                List<Dictionary<string, string>> listAdminDict = new List<Dictionary<string, string>>();
                 
+                Dictionary<string, string> dictAux = new Dictionary<string, string>();
+                dictAux.Add("idAdmin", admin.idAdmin+"");
+                dictAux.Add("nameAdmin", admin.nameAdmin);
+                dictAux.Add("lastNameAdmin", admin.lastNameAdmin);
+                dictAux.Add("userAdmin", admin.userAdmin);
+                dictAux.Add("passwordAdmin", admin.passwordAdmin);
+                dictAux.Add("idTypeAdmin", admin.idTypeAdmin+"");
+                listAdminDict.Add(dictAux);
+
+                this.Close();
+                homeView = new HomeFinancialView(listAdminDict);
+                homeView.Show();
+
+                loginFinancial.Close();
+                mainWindow.Close();
             }
-
-            
-
-            //homeView = new HomeFinancialView(admin); List<Dictionary<string, string>>
-            //homeView.Show();
         }
 
         private void closeWindowFinancial(object sender, System.Windows.RoutedEventArgs e)

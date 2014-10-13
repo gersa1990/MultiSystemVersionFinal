@@ -94,12 +94,6 @@ namespace MultiSystem.app.Financial.Views.Controls
             {
 
             }
-
-            
-
-            
-
-            
         }
 
         private void reprintServiceAction(object sender, RoutedEventArgs e)
@@ -180,6 +174,13 @@ namespace MultiSystem.app.Financial.Views.Controls
                 deleteService.IsEnabled = false;
                 reprintService.IsEnabled = false;
             }
+        }
+
+        private void cancelService(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Patient patient = ((Patient)dataPatientsGrid.SelectedItem);
+
+            MessageBox.Show("idServiceData:  "+patient.idServiceData+"");
         }
     }
 }

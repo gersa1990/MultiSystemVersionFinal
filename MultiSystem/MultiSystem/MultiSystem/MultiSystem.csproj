@@ -100,10 +100,12 @@
     <Compile Include="app\Financial\Controllers\ModalView\ModalViewHandler.cs" />
     <Compile Include="app\Financial\Controllers\Receipt\Receipter.cs" />
     <Compile Include="app\Financial\Controllers\Services\ServicesFinancialController.cs" />
+    <Compile Include="app\Financial\Controllers\TypesAdmin\TypeOfAdminsController.cs" />
     <Compile Include="app\Financial\CreatorWorkBook\CreatorReportByTurn.cs" />
     <Compile Include="app\Financial\Models\BillingModel\BillingModel.cs" />
     <Compile Include="app\Financial\Models\Login\LoginFinancialModel.cs" />
     <Compile Include="app\Financial\Models\Services\ServicesFinancialModel.cs" />
+    <Compile Include="app\Financial\Models\TypesAdmin\TypesOfAdminModel.cs" />
     <Compile Include="app\Financial\Views\Controls\AdminGralWindowFinancial.xaml.cs">
       <DependentUpon>AdminGralWindowFinancial.xaml</DependentUpon>
     </Compile>
@@ -168,6 +170,9 @@
     </Compile>
     <Compile Include="app\Library\Views\Controls\AdminControl.xaml.cs">
       <DependentUpon>AdminControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Library\Views\Controls\AdminControlWindow.xaml.cs">
+      <DependentUpon>AdminControlWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="app\Library\Views\Controls\AdminGralWindowLibrary.xaml.cs">
       <DependentUpon>AdminGralWindowLibrary.xaml</DependentUpon>
@@ -304,6 +309,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="app\Library\Views\Controls\AdminControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Library\Views\Controls\AdminControlWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
