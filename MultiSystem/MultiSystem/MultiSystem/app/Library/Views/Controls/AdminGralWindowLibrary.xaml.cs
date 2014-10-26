@@ -1,4 +1,5 @@
 ﻿using MultiSystem.app.Biblioteca.Views;
+using MultiSystem.app.Financial.Controllers.AdminController;
 using MultiSystem.app.Library.view.Login;
 using System;
 using System.Collections.Generic;
@@ -57,34 +58,39 @@ namespace MultiSystem.app.Library.Views.Controls
             if (this.validationsFormComplete()) 
             {
                 Dictionary<string, string> dict = new Dictionary<string, string>();
+                Admin admin = new Admin();
              
-                foreach (var token in list)
+                foreach (var token in this.list)
                 {
                     
                     foreach (var item in token)
                     {
-                        Console.WriteLine("Key: " + item.Key + " Value: " + item.Value);
 
                         switch(item.Key)
                         {
                             case "idAdmin":
                                 dict.Add("idAdmin", item.Value);
+                                admin.idAdmin = int.Parse(item.Value);
                             break;
 
                             case "nameAdmin":
-                            dict.Add("nameAdmin",nameUSerGral2.Text);
+                            dict.Add("nameAdmin", nameUSerGral2.Text);
+                                admin.nameAdmin = nameUSerGral2.Text;
                             break;
 
                             case "lastNameAdmin":
                             dict.Add("lastNameAdmin",lastNameUserGral2.Text);
+                            admin.lastNameAdmin = lastNameUserGral2.Text;
                             break;
 
                             case "userNameAdmin":
                             dict.Add("userNameAdmin",item.Value);
+                            admin.userAdmin = item.Value;
                             break;
 
                             case "passAdmin":
                             dict.Add("passAdmin",item.Value);
+                            admin.passwordAdmin = item.Value;
                             break;
 
                             case "typeAdmin":
@@ -93,18 +99,22 @@ namespace MultiSystem.app.Library.Views.Controls
 
                             case "turnAdmin":
                             dict.Add("turnAdmin",item.Value);
+                            admin.workingHours = item.Value;
                             break;
 
                             case "idTypeAdmin":
                             dict.Add("idTypeAdmin",item.Value);
+                            admin.idTypeAdmin = int.Parse(item.Value);
                             break;
 
                             case "descriptionAdmin":
                             dict.Add("descriptionAdmin",item.Value);
+                            admin.typeAdmin = item.Value;
                             break;
                         }
                     }
                 }
+                AdminSingleton.Singleton.saveAdmin(admin);
 
                 list = new List<Dictionary<string, string>>();
                 list.Add(dict);

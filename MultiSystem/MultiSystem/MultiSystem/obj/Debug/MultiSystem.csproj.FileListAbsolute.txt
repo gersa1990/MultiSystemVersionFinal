@@ -348,3 +348,13 @@ C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSy
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\MultiSystem.csproj.GenerateResource.Cache
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Library\Views\Controls\AdminControlWindow.g.cs
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Library\Views\Controls\AdminControlWindow.baml
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\PrivateSection\AddAdminPrivateSection.baml
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\AdminControl.g.cs
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\PrivateSection\AddAdminPrivateSection.g.cs
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\AdminControl.baml
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\CRUD\Admins\AddAdmin.baml
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\CRUD\Admins\DeleteAdmin.baml
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\CRUD\Admins\EditAdmin.baml
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\CRUD\Admins\AddAdmin.g.cs
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\CRUD\Admins\DeleteAdmin.g.cs
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\CRUD\Admins\EditAdmin.g.cs

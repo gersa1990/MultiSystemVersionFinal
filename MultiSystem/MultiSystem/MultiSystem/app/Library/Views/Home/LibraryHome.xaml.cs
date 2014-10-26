@@ -114,8 +114,6 @@ namespace MultiSystem.app.Biblioteca.Views
 
                 AdminSingleton.Singleton.saveAdmin(admin);
             }
-
-            //MessageBox.Show(AdminSingleton.Singleton.getAdmin().nameAdmin);
         }
 
         private void controlMain_SelectionChanged(object sender, SelectionChangedEventArgs e)

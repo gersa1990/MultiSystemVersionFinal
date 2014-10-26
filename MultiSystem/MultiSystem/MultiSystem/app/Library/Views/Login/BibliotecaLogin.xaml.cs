@@ -121,6 +121,7 @@ namespace MultiSystem.app.Library.view.Login
 
                     if (idTypeAdmin == "100")
                     {
+                        Window.messageLogin.Content = "Bienvenido";
                         AdminGralWindowLibrary adminGral = new AdminGralWindowLibrary(windowPrivate, this.response);
                         adminGral.Show();
                         this.Close();

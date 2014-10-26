@@ -76,7 +76,7 @@
         <Label x:Name="clockBottom" Content="Derechos reservados 2014&#xA;" Foreground="White" FontSize="14" Grid.Row="2"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="32" Width="433" Margin="0,0,4,0"/>
         <Label Grid.Row="2" x:Name="nameAdmin" Content="Label" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="398" Height="32" Foreground="White" RenderTransformOrigin="0.527,0.25" FontSize="14"/>
 
-        <TextBlock HorizontalAlignment="Center" Margin="286,20,53,10" TextWrapping="Wrap" VerticalAlignment="Center" Height="70" FontSize="24" Foreground="White" FontFamily="Arial Black" Width="421"><Run Text="       HOSPITAL INTEGRAL COMUNITARIO DE LA HUACANA"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="286,10,53,10" TextWrapping="Wrap" VerticalAlignment="Center" Height="80" FontSize="24" Foreground="White" FontFamily="Arial Black" Width="421"><Run Text="       HOSPITAL INTEGRAL COMUNITARIO DE LA HUACANA"/><LineBreak/><Run Language="es-mx" Text="               :BIBLIOTECA:"/></TextBlock>
         <Image Source="michoacan.png" Grid.Row="0" HorizontalAlignment="Left" Height="90" VerticalAlignment="Center" Width="90" Margin="10,5,0,5"/>
         <Image Source="secretaria.jpg" Grid.Row="0" HorizontalAlignment="Right" Height="90" VerticalAlignment="Center" Width="172" Margin="0,5,7,5" />
 

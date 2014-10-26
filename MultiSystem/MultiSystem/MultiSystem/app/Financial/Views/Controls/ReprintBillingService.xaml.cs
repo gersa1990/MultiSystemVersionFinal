@@ -45,7 +45,6 @@ namespace MultiSystem.app.Financial.Views.Controls
 
         public void performanceServicesProvided() 
         {
-
             try
             {
                 string auxDate = DateTime.Now.Year + "_" + DateTime.Now.ToString("MM") + "_" + DateTime.Now.ToString("dd");
@@ -55,8 +54,7 @@ namespace MultiSystem.app.Financial.Views.Controls
 
                 }
                 else 
-                {
-                    
+                {  
                     listOfBills = billingController.getAllPatientForAdmin(AdminSingleton.Singleton.getAdmin().idAdmin); //billingController.getAllPatient();
 
                     var results = from Patient patient in listOfBills
@@ -64,7 +62,6 @@ namespace MultiSystem.app.Financial.Views.Controls
                               select patient;
 
                     dataPatientsGrid.ItemsSource = results;
-
                 }
             }
             catch(Exception exc)
@@ -143,44 +140,38 @@ namespace MultiSystem.app.Financial.Views.Controls
             DataGrid grid = sender as DataGrid;
 
             int idPatient = 0;
-          
-            if (grid == null && idPatient == 0 )
-            {
-                editService.IsEnabled       = false;
-                deleteService.IsEnabled     = false;
-                reprintService.IsEnabled    = false;
-            }
-            else
-            {
-                editService.IsEnabled       = true;
-                deleteService.IsEnabled     = true;
-                reprintService.IsEnabled    = true;
-            }
 
             try
             {
                 idPatient = ((Patient)dataPatientsGrid.SelectedItem).idServiceData;
-
-                if (idPatient == 0) 
+            }
+            catch
+            {
+                idPatient = -1;
+            }
+            finally 
+            {
+                if (idPatient == -1)
                 {
                     editService.IsEnabled = false;
                     deleteService.IsEnabled = false;
                     reprintService.IsEnabled = false;
+                    cancelServiceBtn.IsEnabled = false;
                 }
-            }
-            catch
-            {
-                editService.IsEnabled = false;
-                deleteService.IsEnabled = false;
-                reprintService.IsEnabled = false;
+                else 
+                {
+                    editService.IsEnabled = true;
+                    deleteService.IsEnabled = true;
+                    reprintService.IsEnabled = true;
+                    cancelServiceBtn.IsEnabled = true;
+                }
             }
         }
 
         private void cancelService(object sender, System.Windows.RoutedEventArgs e)
         {
             Patient patient = ((Patient)dataPatientsGrid.SelectedItem);
-
-            MessageBox.Show("idServiceData:  "+patient.idServiceData+"");
+            MessageBox.Show("idServiceData:  "+patient.folioPatient+" "+patient.auxDate);
         }
     }
 }

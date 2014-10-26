@@ -26,13 +26,13 @@ namespace MultiSystem.app.Library.Views.Controls
          private Screener screen;
 
          public AdminControlWindow()
-        {
+         {
             InitializeComponent();
             this.customizeWindow();
             screen = new Screener();
             this.Width = this.MinWidth = screen.fullWidth - 190;
             this.Height = this.MinHeight = screen.fullHeight - 130;
-        }
+         }
 
         private void customizeWindow() 
         {
@@ -44,8 +44,9 @@ namespace MultiSystem.app.Library.Views.Controls
             {
                 optionsForSuperAdmin.Visibility = Visibility.Hidden;
             }
-            optionsForSuperAdmin.Visibility = Visibility.Visible;
+
             tittleWelcomeAdminLibrary.Content = ("BIENVENIDO: " + AdminSingleton.Singleton.getAdmin().nameAdmin +" "+ AdminSingleton.Singleton.getAdmin().lastNameAdmin).ToUpper();
+
         }
 
         public void closeSession(object sender, System.Windows.RoutedEventArgs e)

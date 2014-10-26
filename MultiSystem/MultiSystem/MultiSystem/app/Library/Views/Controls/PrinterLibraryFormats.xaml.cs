@@ -10,6 +10,7 @@ using System.Text;
 using System.Collections.Generic;
 using MultiSystem.app.Library.Controllers;
 using MultiSystem.app.Library.Views.PopUp;
+using System.Threading;
 
 
 namespace MultiSystem.app.Library.Views.Controls
@@ -39,6 +40,12 @@ namespace MultiSystem.app.Library.Views.Controls
             string[] headerStrings = { "No.","Folio","Nombre del libro","Solicitado por","Horario","Horario salida","Turno","Fecha de solicitud","Fecha de entrega"};
 
             excelHandler.createDocumentWithColumsAndRows(headerStrings, rows).save();
+
+            MessageBox.Show("Por tu seguridad y la de todos los que laboran en esta institución. \n Tu sesión será cerrada cada vez que generes tu reporte.");
+            Application.Current.Shutdown();
+            Thread.Sleep(1000);
+            System.Windows.Forms.Application.Restart();
+
         }
        
 

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -112,6 +113,11 @@ namespace MultiSystem.app.Financial.Views.Controls
                         }
                     }
                 }
+
+                MessageBox.Show("Por tu seguridad y la de todos los que laboran en esta institución. \n Tu sesión será cerrada cada vez que generes tu reporte.");
+                Application.Current.Shutdown();
+                Thread.Sleep(1000);
+                System.Windows.Forms.Application.Restart();
             }
             else 
             {

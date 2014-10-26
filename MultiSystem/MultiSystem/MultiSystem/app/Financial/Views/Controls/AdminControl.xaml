@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="MultiSystem.app.Financial.Views.Controls.AdminControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:privateSectionAdminFinancial="clr-namespace:MultiSystem.app.Financial.Views.Controls.PrivateSection"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Width="800" Height="600">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <DockPanel LastChildFill="True">
+                                <Border Background="Red" DockPanel.Dock="Right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
+                                        ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                    <TextBlock Text="!" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" />
+                                </Border>
+                                <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                    <Border BorderBrush="red" BorderThickness="1" />
+                                </AdornedElementPlaceholder>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid x:Name="addBokkGrid" Background="White">
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="77*"/>
+            <ColumnDefinition Width="650"/>
+            <ColumnDefinition Width="73*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="76"/>
+            <RowDefinition Height="44.213"/>
+            <RowDefinition Height="41.702"/>
+            <RowDefinition Height="47.574"/>
+            <RowDefinition Height="311.426"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="1" Width="auto" Height="auto" Grid.RowSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="470"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="49*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="297*"/>
+                <RowDefinition Height="49"/>
+            </Grid.RowDefinitions>
+
+
+            <!--Nombre del libro-->
+            <Button Content="Cerrar sesión" Grid.Column="1" HorizontalAlignment="Left" Margin="121,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120" Click="closeSessionFinancial" Height="30" Background="#FF890707" Foreground="White"/>
+            <TabControl HorizontalAlignment="Left" Name="optionsForSuperAdminFinancial" Height="396" Grid.RowSpan="3" VerticalAlignment="Top" Width="648" Grid.ColumnSpan="2">
+
+                
+
+                <TabItem Header="Administradores" x:Name="addAdmin" >
+                    <Grid Background="#FFE5E5E5">
+                        <privateSectionAdminFinancial:AddAdminPrivateSection />
+                    </Grid>
+                </TabItem>
+
+                <Grid Background="#FFE5E5E5" Height="396" Width="299"/>
+            </TabControl>
+
+            <!--Autor del libro-->
+
+
+        </Grid>
+        <Label x:Name="tittleWelcomeAdminFinancial" Content="Bienvenido&#xA;" Width="635" FontSize="24" FontFamily="Stencil"  Grid.Column="1" Margin="11,12,4,12" HorizontalAlignment="Center"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="1,34,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Height="10" Width="38">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1.158"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+    </Grid>
+</UserControl>

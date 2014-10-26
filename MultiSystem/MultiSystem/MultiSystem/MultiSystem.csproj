@@ -91,6 +91,7 @@
     </ApplicationDefinition>
     <Compile Include="app\Core\System\Screen\Screener.cs" />
     <Compile Include="app\Core\WorkBook\WorkBookHandler.cs" />
+    <Compile Include="app\Financial\Controllers\AdminController\AdminControllerFinancial.cs" />
     <Compile Include="app\Financial\Controllers\AdminController\AdminSingleton.cs" />
     <Compile Include="app\Financial\Controllers\BillController\BillFinancialController.cs" />
     <Compile Include="app\Financial\Controllers\BillingController\BillingController.cs" />
@@ -102,15 +103,31 @@
     <Compile Include="app\Financial\Controllers\Services\ServicesFinancialController.cs" />
     <Compile Include="app\Financial\Controllers\TypesAdmin\TypeOfAdminsController.cs" />
     <Compile Include="app\Financial\CreatorWorkBook\CreatorReportByTurn.cs" />
+    <Compile Include="app\Financial\Models\Admin\AdminModelFinancial.cs" />
     <Compile Include="app\Financial\Models\BillingModel\BillingModel.cs" />
     <Compile Include="app\Financial\Models\Login\LoginFinancialModel.cs" />
     <Compile Include="app\Financial\Models\Services\ServicesFinancialModel.cs" />
     <Compile Include="app\Financial\Models\TypesAdmin\TypesOfAdminModel.cs" />
+    <Compile Include="app\Financial\Views\Controls\AdminControl.xaml.cs">
+      <DependentUpon>AdminControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="app\Financial\Views\Controls\AdminGralWindowFinancial.xaml.cs">
       <DependentUpon>AdminGralWindowFinancial.xaml</DependentUpon>
     </Compile>
     <Compile Include="app\Financial\Views\Controls\BillingUser.xaml.cs">
       <DependentUpon>BillingUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\CRUD\Admins\AddAdmin.xaml.cs">
+      <DependentUpon>AddAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\CRUD\Admins\DeleteAdmin.xaml.cs">
+      <DependentUpon>DeleteAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\CRUD\Admins\EditAdmin.xaml.cs">
+      <DependentUpon>EditAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\PrivateSection\AddAdminPrivateSection.xaml.cs">
+      <DependentUpon>AddAdminPrivateSection.xaml</DependentUpon>
     </Compile>
     <Compile Include="app\Financial\Views\Controls\RegisterService.xaml.cs">
       <DependentUpon>RegisterService.xaml</DependentUpon>
@@ -237,6 +254,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="app\Financial\Views\Controls\AdminControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="app\Financial\Views\Controls\AdminGralWindowFinancial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -244,6 +265,22 @@
     <Page Include="app\Financial\Views\Controls\BillingUser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\CRUD\Admins\AddAdmin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\CRUD\Admins\DeleteAdmin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\CRUD\Admins\EditAdmin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\PrivateSection\AddAdminPrivateSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="app\Financial\Views\Controls\RegisterService.xaml">
       <SubType>Designer</SubType>
@@ -452,6 +489,7 @@
   <ItemGroup>
     <Resource Include="app\Resources\library.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

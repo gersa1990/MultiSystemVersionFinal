@@ -33,6 +33,9 @@ namespace MultiSystem.app.Library.Views.Controls
             screen = new Screener();
             this.Width = this.MinWidth = screen.fullWidth - 190;
             this.Height = this.MinHeight = screen.fullHeight - 130;
+
+            MessageBox.Show("BIENVENIDO: " + AdminSingleton.Singleton.getAdmin().nameAdmin + " " + AdminSingleton.Singleton.getAdmin().lastNameAdmin);
+        
         }
 
         private void customizeWindow() 
@@ -45,7 +48,9 @@ namespace MultiSystem.app.Library.Views.Controls
             {
                 optionsForSuperAdmin.Visibility = Visibility.Hidden;
             }
+
             tittleWelcomeAdminLibrary.Content = ("BIENVENIDO: " + AdminSingleton.Singleton.getAdmin().nameAdmin +" "+ AdminSingleton.Singleton.getAdmin().lastNameAdmin).ToUpper();
+            MessageBox.Show("BIENVENIDO: " + AdminSingleton.Singleton.getAdmin().nameAdmin + " " + AdminSingleton.Singleton.getAdmin().lastNameAdmin);
         }
 
         public void closeSession(object sender, System.Windows.RoutedEventArgs e)

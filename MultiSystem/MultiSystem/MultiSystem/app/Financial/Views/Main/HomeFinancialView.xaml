@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:Add="clr-namespace:MultiSystem.app.Financial.Views.Controls"
 		xmlns:services="clr-namespace:MultiSystem.app.Financial.Views.Controls"
+        xmlns:adminControl="clr-namespace:MultiSystem.app.Financial.Views.Controls.PrivateSection"
         Title="Recursos financieros" 
 		MinWidth="1024" 
 		MinHeight="608" 
@@ -19,6 +20,12 @@
 
         <TabControl x:Name="controlMain"  Height="auto" Grid.Row="1" Width="auto" TabStripPlacement="Left" Grid.RowSpan="2">
 
+            <TabItem Header="Administrador" x:Name="homeFinancialAdmin" >
+                <Grid Background="#FFE5E5E5">
+                    <services:AdminControl/>
+                </Grid>
+            </TabItem>
+            
             <TabItem Header="Registrar servicio" x:Name="registerServiceToUser" >
                 <Grid Background="#FFE5E5E5">
                     <services:RegisterService/>
@@ -70,7 +77,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock HorizontalAlignment="Center" Margin="169,15,70,15" TextWrapping="Wrap" VerticalAlignment="Center" Height="70" FontSize="24" Foreground="White" FontFamily="Arial Black" Width="521"><Run Text="       HOSPITAL INTEGRAL COMUNITARIO DE LA HUACANA"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="169,11,140.149,11" TextWrapping="Wrap" VerticalAlignment="Center" Height="78" FontSize="20" Foreground="White" FontFamily="Arial Black" Width="450.851"><Run Text="    HOSPITAL "/><Run Language="es-mx" Text="I"/><Run Text="NTEGRAL"/><Run Language="es-mx" Text=" "/><Run Text="COMUNITARIO "/><LineBreak/><Run Language="es-mx" Text="                      "/><Run Text="DE LA HUACANA "/><LineBreak/><Run Language="es-mx" Text="                "/><Run Text="SERVICIOS FINANCIEROS"/></TextBlock>
         <Image Source="/MultiSystem;component/app/Library/Views/Home/michoacan.png" Grid.Row="0" HorizontalAlignment="Left" Height="90" VerticalAlignment="Center" Width="90" Margin="10,5,0,5"/>
         <Image Source="/MultiSystem;component/app/Library/Views/Home/secretaria.jpg" Grid.Row="0" HorizontalAlignment="Right" Height="90" VerticalAlignment="Center" Width="172" Margin="0,5,7,5" />
 

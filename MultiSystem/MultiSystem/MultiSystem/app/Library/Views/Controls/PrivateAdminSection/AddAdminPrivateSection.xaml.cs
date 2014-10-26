@@ -39,6 +39,7 @@ namespace MultiSystem.app.Library.Views.Controls.PrivateAdminSection
         {
             dataGridAdmins.ItemsSource = listOfAdmins = controllerAdmin.getAllAdmins();
             gridSelectedAdmins.Visibility = Visibility.Hidden;
+            this.selectRowAdmin(null, null);
         }
 
         private void deleteAdmins(object sender, System.Windows.RoutedEventArgs e)
@@ -82,11 +83,16 @@ namespace MultiSystem.app.Library.Views.Controls.PrivateAdminSection
             }
             finally 
             {
-                if (idSelected != -1) 
+                if (idSelected != -1)
                 {
                     this.adminSelected = (Admin)dataGridAdmins.SelectedItem;
                     gridSelectedAdmins.Visibility = Visibility.Visible;
                 }
+                else 
+                {
+                    gridSelectedAdmins.Visibility = Visibility.Hidden;
+                }
+
             }
         }
 
