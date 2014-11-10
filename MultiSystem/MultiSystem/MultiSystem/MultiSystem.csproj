@@ -141,6 +141,9 @@
     <Compile Include="app\Financial\Views\Controls\ServicesCRUD\AddService.xaml.cs">
       <DependentUpon>AddService.xaml</DependentUpon>
     </Compile>
+    <Compile Include="app\Financial\Views\Controls\ServicesCRUD\CancelServiceWindow.xaml.cs">
+      <DependentUpon>CancelServiceWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="app\Financial\Views\Controls\ServicesCRUD\EditService.xaml.cs">
       <DependentUpon>EditService.xaml</DependentUpon>
     </Compile>
@@ -295,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="app\Financial\Views\Controls\ServicesCRUD\AddService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\ServicesCRUD\CancelServiceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

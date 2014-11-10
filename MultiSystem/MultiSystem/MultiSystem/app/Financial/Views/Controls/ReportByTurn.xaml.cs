@@ -60,8 +60,6 @@ namespace MultiSystem.app.Financial.Views.Controls
             this.getAsyncronusTickets();
             Dictionary<int, int> dict = new Dictionary<int, int>();
 
-            
-
             int i = 0;
             int aux = 0;
             int parte = 1;

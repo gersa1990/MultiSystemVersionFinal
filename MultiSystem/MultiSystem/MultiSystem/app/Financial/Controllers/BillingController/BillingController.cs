@@ -22,6 +22,8 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
             billingModel = new BillingModel();
         }
 
+  
+
         public List<Patient> getAllPatient() 
         {
             List<Patient> patientsFounded = new List<Patient>();
@@ -171,6 +173,10 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
 
                         case "keyPrice":
                         bill.keyPrice = item.Value;
+                        break;
+
+                        case "serviceCanceled":
+                        bill.serviceCanceled = int.Parse(item.Value);
                         break;
 
                         case "descriptionPrice":
@@ -379,6 +385,40 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
             }
 
             return listOfBills;
+        }
+
+        public int cancelServiceController(Patient patient, string reason)
+        {
+            List<Dictionary<string, string>> listOfServicesForCancel = billingModel.getServicesForCancel(patient.idServiceData);
+            int serviceCanceled = 0;
+
+            foreach (var token in listOfServicesForCancel)
+            {
+                foreach (var item in token)
+                {
+                    if (item.Key == "idProvided")
+                    {
+                        int idProvided = int.Parse(item.Value);
+
+                        Dictionary<string, string> setParameters = new Dictionary<string, string>();
+                        setParameters.Add("reasonDiscount", '"'+reason.ToUpper()+'"');
+                        setParameters.Add("serviceCanceled", 1 + "");
+
+                        Dictionary<string, string> whereParameters = new Dictionary<string, string>();
+                        whereParameters.Add("idServiceData", patient.idServiceData + "");
+
+                        serviceCanceled = billingModel.cancelServiceModel(whereParameters, setParameters);
+
+                        if (serviceCanceled == 0)
+                        {
+                            return 0;
+                        }
+                    }
+                }
+            }
+
+            return serviceCanceled;
+            
         }
     }
 }

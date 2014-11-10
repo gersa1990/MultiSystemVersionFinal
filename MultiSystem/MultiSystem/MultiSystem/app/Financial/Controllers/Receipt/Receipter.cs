@@ -69,14 +69,23 @@ namespace MultiSystem.app.Financial.Controllers.Receipt
             Dictionary<string, int> dict = new Dictionary <string, int>();
             Dictionary<string, string> dictNames = new Dictionary<string, string>();
 
+            bool isTicketCanceled = false;
+            string reasonCanceled = "";
+
             foreach(Bill bill in this.listOfBillsAdded)
             {
+                if (bill.serviceCanceled == 1) 
+                {
+                    isTicketCanceled = true;
+                    reasonCanceled = bill.reasonDiscount;
+                }
+
                 if (dict.ContainsKey(bill.keyPrice))
                 {
                     dict[bill.keyPrice]++;
                     dictNames[bill.keyPrice] = bill.descriptionPrice;
 
-                    if (bill.amountWithDiscount != 0)
+                    if (!bill.reasonDiscount.Equals(""))
                     {
                         this.totalAmount += bill.amountWithDiscount;
                     }
@@ -90,7 +99,7 @@ namespace MultiSystem.app.Financial.Controllers.Receipt
                     dict[bill.keyPrice] = 1;
                     dictNames[bill.keyPrice] = bill.descriptionPrice;
 
-                    if (bill.amountWithDiscount != 0)
+                    if (!bill.reasonDiscount.Equals(""))
                     {
                         this.totalAmount += bill.amountWithDiscount;
                     }
@@ -101,7 +110,15 @@ namespace MultiSystem.app.Financial.Controllers.Receipt
                 }
             }
 
+            
+
             excelApp.Cells[25, 9] = "$"+this.totalAmount+".00";
+
+            if (isTicketCanceled) 
+            {
+                excelApp.Cells[25, 9] = "SERVICIO CANCELADO POR "+reasonCanceled;
+            }
+
             excelApp.Cells[27, 7] = this.NumberToWords(this.totalAmount)+" 00/100 mn";
 
             int i = 1;
@@ -170,10 +187,10 @@ namespace MultiSystem.app.Financial.Controllers.Receipt
         private string NumberToWords(int number)
         {
             if (number == 0)
-                return "zero";
+                return "cero";
 
             if (number < 0)
-                return "minus " + NumberToWords(Math.Abs(number));
+                return "menos " + NumberToWords(Math.Abs(number));
 
             string words = "";
 
@@ -337,7 +354,6 @@ namespace MultiSystem.app.Financial.Controllers.Receipt
             orientation.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlPortrait;
 
             ws.PageSetup.TopMargin = 0.0f;
-            
         }
 
         public void setVisible()
@@ -351,7 +367,7 @@ namespace MultiSystem.app.Financial.Controllers.Receipt
             
             try
             {
-                wbobj.SaveAs(Directory.GetCurrentDirectory() + "_RECIBO_" + DateTime.Now.ToString("dddd", new CultureInfo("es-MX")).ToUpper() + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + "_" + DateTime.Now.ToString("MMMM", new CultureInfo("es-MX")).ToUpper() + "_" + ".xlsx");
+                wbobj.SaveAs(Directory.GetCurrentDirectory() + "_RECIBO_" + DateTime.Now.ToString("dddd", new CultureInfo("es-MX")).ToUpper() + "_" + DateTime.Now.Day + DateTime.Now.Month + "_" + DateTime.Now.Year + "_" + "_" + patient.namePatient + "_" + patient.lastNamePatient + ".xlsx");
                 excelApp.Visible = true;
                
             }

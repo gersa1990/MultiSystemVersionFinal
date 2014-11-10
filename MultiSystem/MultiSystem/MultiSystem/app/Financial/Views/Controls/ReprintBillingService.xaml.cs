@@ -3,6 +3,7 @@ using MultiSystem.app.Financial.Controllers;
 using MultiSystem.app.Financial.Controllers.AdminController;
 using MultiSystem.app.Financial.Controllers.BillingController;
 using MultiSystem.app.Financial.Controllers.Receipt;
+using MultiSystem.app.Financial.Views.Controls.ServicesCRUD;
 using MultiSystem.app.Library.Views.Controls;
 using System;
 using System.Collections.Generic;
@@ -98,6 +99,12 @@ namespace MultiSystem.app.Financial.Views.Controls
             Patient patient = ((Patient)dataPatientsGrid.SelectedItem);
             List<Bill> listOfBillForReprint = billingController.getBillsForPatientID(patient.idServiceData);
 
+
+            if (listOfBillForReprint.ElementAt(0).serviceCanceled == 1)
+            {
+                MessageBox.Show("Este servicio fué cancelado por motivos de '"+listOfBillForReprint.ElementAt(0).reasonDiscount+"'");
+            }
+
             Receipter receipter = new Receipter(listOfBillForReprint, patient);
             receipter.createReceipt().save();
         }
@@ -168,10 +175,26 @@ namespace MultiSystem.app.Financial.Views.Controls
             }
         }
 
+        public void cancelServiceBackGround(Patient patient, string reason) 
+        {
+            int canceled = billingController.cancelServiceController(patient, reason);
+
+            if (canceled != 0)
+            {
+                MessageBox.Show("El servicio fué cancelado con éxito.");
+            }
+            else 
+            {
+                MessageBox.Show("Ocurrió un error al tratar de cancelar este servicio.");
+            }
+        }
+
         private void cancelService(object sender, System.Windows.RoutedEventArgs e)
         {
             Patient patient = ((Patient)dataPatientsGrid.SelectedItem);
-            MessageBox.Show("idServiceData:  "+patient.folioPatient+" "+patient.auxDate);
+
+            CancelServiceWindow windowCancel = new CancelServiceWindow(this, patient);
+            windowCancel.Show();
         }
     }
 }

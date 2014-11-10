@@ -358,3 +358,5 @@ C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSy
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\CRUD\Admins\AddAdmin.g.cs
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\CRUD\Admins\DeleteAdmin.g.cs
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\CRUD\Admins\EditAdmin.g.cs
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\ServicesCRUD\CancelServiceWindow.baml
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\ServicesCRUD\CancelServiceWindow.g.cs

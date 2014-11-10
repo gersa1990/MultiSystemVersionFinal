@@ -12,6 +12,7 @@ using System.Globalization;
 using MultiSystem.app.Library.Controllers;
 using System.Drawing;
 using System.Diagnostics;
+using MultiSystem.app.Financial.Controllers.AdminController;
 
 namespace MultiSystem.app.Core.WorkBook
 {
@@ -20,7 +21,7 @@ namespace MultiSystem.app.Core.WorkBook
         private Microsoft.Office.Interop.Excel.Application excelApp;
         private Microsoft.Office.Interop.Excel.Workbook wbobj;
         private Microsoft.Office.Interop.Excel.Worksheet ws;
-        
+        private List<LoanBook> rowsMain;
 
         public WorkBookHandler() 
         {
@@ -175,7 +176,7 @@ namespace MultiSystem.app.Core.WorkBook
             
             try 
             {
-                wbobj.SaveAs(Directory.GetCurrentDirectory() + "_BIBLIOTECA_" + DateTime.Now.ToString("dddd", new CultureInfo("es-MX")).ToUpper() +"_"+DateTime.Now.Day+"_"+ DateTime.Now.Year + "_" + DateTime.Now.ToString("MMMM", new CultureInfo("es-MX")).ToUpper() + "_" + ".xlsx");
+                wbobj.SaveAs(Directory.GetCurrentDirectory() + "_BIBLIOTECA_" + DateTime.Now.ToString("dddd", new CultureInfo("es-MX")).ToUpper() + "_" + DateTime.Now.Day + DateTime.Now.Month + "_" + DateTime.Now.Year + "_" + "_" + AdminSingleton.Singleton.getAdmin().nameAdmin+"_"+AdminSingleton.Singleton.getAdmin().typeAdmin+ ".xlsx");
                 excelApp.Visible = true;
             }
             catch(Exception e)

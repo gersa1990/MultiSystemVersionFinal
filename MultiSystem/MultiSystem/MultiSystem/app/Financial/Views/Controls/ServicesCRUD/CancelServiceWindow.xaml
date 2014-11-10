@@ -1,0 +1,21 @@
+﻿<Window x:Class="MultiSystem.app.Financial.Views.Controls.ServicesCRUD.CancelServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CancelServiceWindow" Height="300" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="167*"/>
+            <RowDefinition Height="39*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Aceptar" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="4" VerticalAlignment="Center" Width="100" Background="#FF065523" Foreground="White" Height="25" Click="acceptReasonCancel"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="10,0,0,1" Grid.Row="4" VerticalAlignment="Center" Width="100" Click="closeWindow" Height="25" Foreground="White" Background="#FF890707"/>
+        <TextBox x:Name="reasonCanceledService" HorizontalAlignment="Right" Height="23" Margin="0,0,10,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="176.01" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Razón de cancelación" HorizontalAlignment="Left" Margin="27,3,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="38.79" Stroke="Black" VerticalAlignment="Top" Width="342"/>
+        <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="0,10,4,23.85" TextWrapping="Wrap" VerticalAlignment="Center" Width="338" Height="29.395" FontWeight="Bold" FontSize="18.667" FontFamily="Arial Black" Grid.RowSpan="2" Foreground="White"><Run Language="es-mx" Text="CANCELAR SERVICIO"/></TextBlock>
+
+    </Grid>
+</Window>

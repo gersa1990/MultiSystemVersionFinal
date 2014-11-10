@@ -61,5 +61,15 @@ namespace MultiSystem.app.Financial.Models.BillingModel
         {
             return this.db.Query("financialresources", "SELECT * FROM servicesprovided INNER JOIN servicesData ON servicesdata.idServiceData = servicesprovided.idServiceData INNER JOIN services ON services.idService = servicesprovided.idService  WHERE servicesprovided.idAdmin = "+idAdmin+"  ").resultArray();
         }
+
+        public List<Dictionary<string, string>> getServicesForCancel(int p)
+        {
+            return this.db.Query("financialresources", "SELECT * FROM servicesprovided WHERE idServiceData = "+p+"").resultArray();
+        }
+
+        public int cancelServiceModel(Dictionary<string, string> whereParameters, Dictionary<string, string> setParameters)
+        {
+            return this.db.Update("financialresources", "servicesprovided", setParameters, whereParameters);
+        }
     }
 }

@@ -379,7 +379,7 @@ namespace MultiSystem.app.Financial.CreatorWorkBook
         {
             try
             {
-                wbobj.SaveAs(Directory.GetCurrentDirectory() + "_REPORTE_" + DateTime.Now.ToString("dddd", new CultureInfo("es-MX")).ToUpper() + "_" + DateTime.Now.Day +"_DE_"+  DateTime.Now.ToString("MMMM", new CultureInfo("es-MX")).ToUpper()+"_" + DateTime.Now.Year + "_" + part+ "_" + ".xlsx");
+                wbobj.SaveAs(Directory.GetCurrentDirectory() + "_REPORTE_" + DateTime.Now.ToString("dddd", new CultureInfo("es-MX")).ToUpper() + "_" + DateTime.Now.Day + DateTime.Now.Month + "_" + DateTime.Now.Year + "_" + "_" +AdminSingleton.Singleton.getAdmin().nameAdmin + "_" + AdminSingleton.Singleton.getAdmin().typeAdmin + ".xlsx");
                 excelApp.Visible = true;
                 MessageBox.Show("El archivo se guardó satisfactoriamente en: " + Directory.GetCurrentDirectory());
             }

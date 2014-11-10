@@ -185,6 +185,9 @@ namespace MultiSystem.app.Library.Views.Controls
                     popUp.setDataForAlert("Libro prestado", "Se registró el préstamo del libro '" + ((Book)dataResults.SelectedItem).nameBook + "'. \n\n Código del préstamo: " + hash + ".\n\n Recuerda que debes entregarlo el día '" + dateDeliveryText.Content + "' ", typeOfAlertEnum.alert);
                     popUp.Show();
 					BookSingletonController.Singleton.isModifiedLoan = true;
+
+                    containerGrid.Visibility = Visibility.Hidden;
+                    nameReaderBook.Text = "";
 					
                 }
                 else 
@@ -194,6 +197,9 @@ namespace MultiSystem.app.Library.Views.Controls
                     popUp.Show();
 					
 					BookSingletonController.Singleton.isModifiedLoan = true;
+
+                    containerGrid.Visibility = Visibility.Hidden;
+                    nameReaderBook.Text = "";
                 }
              }
         }

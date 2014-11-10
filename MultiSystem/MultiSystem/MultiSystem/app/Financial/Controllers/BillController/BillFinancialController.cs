@@ -137,6 +137,9 @@ namespace MultiSystem.app.Financial.Controllers
         [DisplayName("Categoria")]
         public string type { get; set; }
 
+       [DisplayName("Servicio cancelado")]
+        public int serviceCanceled { get; set; }
+
         public string reasonDiscount { get; set; }
 
         [DisplayName("Descuento")]
