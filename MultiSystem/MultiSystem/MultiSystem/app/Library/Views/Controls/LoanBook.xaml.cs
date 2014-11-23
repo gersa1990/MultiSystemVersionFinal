@@ -172,6 +172,7 @@ namespace MultiSystem.app.Library.Views.Controls
                     loanBook.Add("dateLoan", this.today);
                     loanBook.Add("dateDeliveryLoan", "0000-00-00");
                 }
+
                 else {
 
                     loanBook.Add("dateLoan", "0000-00-00");
@@ -179,6 +180,7 @@ namespace MultiSystem.app.Library.Views.Controls
                 }
 
                 int idInserted = controllerBook.addLoanBook(loanBook);
+
                 if (radioSelectLoanAndDelivery.IsChecked == true)
                 {
                     PopUpCustom popUp = new PopUpCustom();

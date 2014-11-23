@@ -48,21 +48,44 @@ namespace MultiSystem.app.Financial.Views.Controls
         {
             try
             {
-                string auxDate = DateTime.Now.Year + "_" + DateTime.Now.ToString("MM") + "_" + DateTime.Now.ToString("dd");
+                string auxDate = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM") + "-" + DateTime.Now.ToString("dd");
+
+                int hour = DateTime.Now.Hour;
+                listOfBills = new List<Patient>();
 
                 if (AdminSingleton.Singleton.getAdmin().idAdmin == 5 || AdminSingleton.Singleton.getAdmin().idAdmin == 6)
                 {
+                    if (hour >= 19) 
+                    {
+                        listOfBills = billingController.getAllPatientForAdminTodayNocturn(AdminSingleton.Singleton.getAdmin().idAdmin, auxDate); //billingController.getAllPatient();
+                    
+                    }
+                    else if(hour <= 10)
+                    {
+                        string auxDateYesterday = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM") + "-" + DateTime.Now.AddDays(-1).ToString("dd");
+                        string auxDateToday = DateTime.Now.Year + "-"+DateTime.Now.ToString("MM")+"-"+DateTime.Now.ToString("dd");
 
+                        listOfBills = billingController.getAllPatientForAdminAux(AdminSingleton.Singleton.getAdmin().idAdmin, auxDateYesterday, auxDateToday);
+                    }
+
+                   
+                    dataPatientsGrids.ItemsSource = listOfBills;
+
+
+
+                    Console.WriteLine("Contiene: " + dataPatientsGrids.ItemsSource.OfType<Patient>().Count());
+                   
+                   
                 }
                 else 
-                {  
-                    listOfBills = billingController.getAllPatientForAdmin(AdminSingleton.Singleton.getAdmin().idAdmin); //billingController.getAllPatient();
+                {
+                    listOfBills = billingController.getAllPatientForAdmin(AdminSingleton.Singleton.getAdmin().idAdmin, auxDate); //billingController.getAllPatient();
 
                     var results = from Patient patient in listOfBills
-                              where patient.auxDate.Equals(auxDate)
+                              
                               select patient;
 
-                    dataPatientsGrid.ItemsSource = results;
+                    dataPatientsGrids.ItemsSource = results;
                 }
             }
             catch(Exception exc)
@@ -76,17 +99,16 @@ namespace MultiSystem.app.Financial.Views.Controls
         {
             this.performanceServicesProvided();
             string token = serviceToReprint.Text;
-            string auxDate = DateTime.Now.Year + "_" + DateTime.Now.ToString("MM") + "_" + DateTime.Now.ToString("dd");
 
             try 
             {
                 var results = from Patient patient in listOfBills
-                              where patient.namePatient.ToLower().Contains(token.ToLower()) && patient.auxDate.Equals(auxDate) ||
-                                    patient.lastNamePatient.ToLower().Contains(token.ToLower()) && patient.auxDate.Equals(auxDate) ||
-                                    patient.folioPatient.ToLower().Contains(token.ToLower()) && patient.auxDate.Equals(auxDate)
+                              where patient.namePatient.ToLower().Contains(token.ToLower())  ||
+                                    patient.lastNamePatient.ToLower().Contains(token.ToLower()) ||
+                                    patient.folioPatient.ToLower().Contains(token.ToLower()) 
                               select patient;
 
-                dataPatientsGrid.ItemsSource = results;
+                dataPatientsGrids.ItemsSource = results;
             }
             catch 
             {
@@ -96,8 +118,12 @@ namespace MultiSystem.app.Financial.Views.Controls
 
         private void reprintServiceAction(object sender, RoutedEventArgs e)
         {
-            Patient patient = ((Patient)dataPatientsGrid.SelectedItem);
+            Patient patient = ((Patient)dataPatientsGrids.SelectedItem);
+
+
+            
             List<Bill> listOfBillForReprint = billingController.getBillsForPatientID(patient.idServiceData);
+
 
 
             if (listOfBillForReprint.ElementAt(0).serviceCanceled == 1)
@@ -111,7 +137,7 @@ namespace MultiSystem.app.Financial.Views.Controls
 
         private void deleteServiceAction(object sender, RoutedEventArgs e)
         {
-            Patient patient = ((Patient)dataPatientsGrid.SelectedItem);
+            Patient patient = ((Patient)dataPatientsGrids.SelectedItem);
             int deleted = billingController.deleteBillngs(patient.idServiceData);
 
             if (deleted != 0) 
@@ -135,7 +161,7 @@ namespace MultiSystem.app.Financial.Views.Controls
 
         private void editServiceAction(object sender, RoutedEventArgs e)
         {
-            Patient patient = ((Patient)dataPatientsGrid.SelectedItem);
+            Patient patient = ((Patient)dataPatientsGrids.SelectedItem);
             List<Bill> listOfBillForReprint = billingController.getBillsForPatientID(patient.idServiceData);
 
             EditorServices editorServices = new EditorServices(patient, listOfBillForReprint, this);
@@ -150,7 +176,7 @@ namespace MultiSystem.app.Financial.Views.Controls
 
             try
             {
-                idPatient = ((Patient)dataPatientsGrid.SelectedItem).idServiceData;
+                idPatient = ((Patient)dataPatientsGrids.SelectedItem).idServiceData;
             }
             catch
             {
@@ -191,7 +217,7 @@ namespace MultiSystem.app.Financial.Views.Controls
 
         private void cancelService(object sender, System.Windows.RoutedEventArgs e)
         {
-            Patient patient = ((Patient)dataPatientsGrid.SelectedItem);
+            Patient patient = ((Patient)dataPatientsGrids.SelectedItem);
 
             CancelServiceWindow windowCancel = new CancelServiceWindow(this, patient);
             windowCancel.Show();

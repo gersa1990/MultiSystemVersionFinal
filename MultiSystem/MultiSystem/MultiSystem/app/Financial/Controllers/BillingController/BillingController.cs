@@ -93,7 +93,7 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
             Admin admin = AdminSingleton.Singleton.getAdmin();
 
             patient.dateService = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM") + "-" + DateTime.Now.ToString("dd");
-            patient.hourService = DateTime.Now.Hour.ToString()+":"+DateTime.Now.Minute.ToString();
+            patient.hourService = DateTime.Now.ToString("HH:mm");
 
             patientDict.Add("folioPatient", patient.folioPatient.ToUpper());
             patientDict.Add("namePatient",patient.namePatient.ToUpper());
@@ -139,7 +139,14 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
             List<Bill> listBillings = new List<Bill>();
             Bill bill;
             List<Dictionary<string, string>> billings = new List<Dictionary<string, string>>();
+
+            string auxDate = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM") + "-" + DateTime.Now.ToString("dd");
+            int hour = DateTime.Now.Hour;
+
+            
+
             billings = billingModel.getBillingsForId(p);
+
 
             if (billings.Count <= 0)
             {
@@ -212,13 +219,13 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
             return 0;
         }
 
-        public List<Patient> getAllPatientForAdmin(int idAdmin)
+        public List<Patient> getAllPatientForAdmin(int idAdmin, string date)
         {
 
             List<Patient> patients = new List<Patient>();
             Patient patient;
            
-            List<Dictionary<string, string>> patientsDictionary = billingModel.getPatientsByAdmin(idAdmin);
+            List<Dictionary<string, string>> patientsDictionary = billingModel.getPatientsByAdmin(idAdmin, date);
 
             if (patientsDictionary == null)
             {
@@ -294,25 +301,46 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
             List<Dictionary<string, string>> listOfDictionarys = new List<Dictionary<string, string>>();
             List<Ticket> listOfBills = new List<Ticket>();
             Ticket ticket;
-            bool isEnabled = true;
 
-            listOfDictionarys = billingModel.getBillingsForAdminID(idAdministrador);
+            int hour = DateTime.Now.Hour;
+            string auxDate = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM") + "-" + DateTime.Now.ToString("dd");
+
+            if (idAdministrador == 5 || idAdministrador == 6)
+            {
+                if (hour >= 19)
+                {
+                    listOfDictionarys = billingModel.getPatientsByAdminNocturnToday(idAdministrador, auxDate); //billingController.getAllPatient();
+
+                }
+                else if (hour <= 10)
+                {
+                    string auxDateYesterday = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM") + "-" + DateTime.Now.AddDays(-1).ToString("dd");
+                    string auxDateToday = DateTime.Now.Year + "-" + DateTime.Now.ToString("MM") + "-" + DateTime.Now.ToString("dd");
+
+                    listOfDictionarys = billingModel.getPatientsByAdminNocturn(idAdministrador, auxDateYesterday, auxDateToday);
+                }
+            }
+            else 
+            {
+                listOfDictionarys = billingModel.getBillingsForAdminID(idAdministrador);
+            }
+           
             string dateAux = DateTime.Now.Year + "_" + DateTime.Now.ToString("MM") + "_" + DateTime.Now.ToString("dd");
 
             foreach (var token in listOfDictionarys) 
             {
                 ticket = new Ticket();
-                isEnabled = true;
+               // isEnabled = true;
 
                 foreach (var item in token) 
                 {
-                    if (item.Key.Equals("auxDate") ) 
+                    /*if (item.Key.Equals("auxDate") ) 
                     {
                         if (!item.Value.Equals(dateAux)) 
                         {
                             isEnabled = false;
                         }
-                    }
+                    }*/
 
                     switch(item.Key)
                     {
@@ -378,10 +406,10 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
                     }
                 }
 
-                if (isEnabled) 
+               /* if (isEnabled) 
                 {
                     listOfBills.Add(ticket);
-                }
+                }*/
             }
 
             return listOfBills;
@@ -419,6 +447,318 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
 
             return serviceCanceled;
             
+        }
+
+        public List<Patient> getAllPatientForAdminAux(int p, string auxDateYesterday, string auxDateToday)
+        {
+            List<Dictionary<string, string>> listOfDictionary = billingModel.getPatientsByAdminNocturn( p, auxDateYesterday, auxDateToday);
+
+            Console.WriteLine(listOfDictionary+" count: "+listOfDictionary.Count);
+
+            List<Patient> patients = new List<Patient>();
+
+
+            if (listOfDictionary == null)
+            {
+                return null;
+            }
+
+            foreach (var token in listOfDictionary)
+            {
+                Patient patient = new Patient();
+                foreach (var item in token)
+                {
+                    switch (item.Key)
+                    {
+                        case "idServiceData":
+                            patient.idServiceData = int.Parse(item.Value);
+                            break;
+
+                        case "folioPatient":
+                            patient.folioPatient = item.Value;
+                            break;
+
+                        case "namePatient":
+                            patient.namePatient = item.Value;
+                            break;
+
+                        case "lastNamePatient":
+                            patient.lastNamePatient = item.Value;
+                            break;
+
+                        case "adressPatient":
+                            patient.adressPatient = item.Value;
+                            break;
+
+                        case "dateService":
+                            patient.dateService = item.Value;
+                            break;
+
+                        case "auxDate":
+                            patient.auxDate = item.Value;
+                            break;
+
+                        case "hourService":
+                            patient.hourService = item.Value;
+                            break;
+                    }
+                }
+
+                patients.Add(patient);
+            }
+
+            return patients;
+        }
+
+        public List<Patient> getAllPatientForAdminTodayNocturn(int p, string auxDate)
+        {
+            List<Dictionary<string, string>> listOfDictionary = billingModel.getPatientsByAdminNocturnToday( p,  auxDate);
+
+            Console.WriteLine(listOfDictionary + " count: " + listOfDictionary.Count);
+
+            List<Patient> patients = new List<Patient>();
+
+
+            if (listOfDictionary == null)
+            {
+                return null;
+            }
+
+            foreach (var token in listOfDictionary)
+            {
+                Patient patient = new Patient();
+                foreach (var item in token)
+                {
+                    switch (item.Key)
+                    {
+                        case "idServiceData":
+                            patient.idServiceData = int.Parse(item.Value);
+                            break;
+
+                        case "folioPatient":
+                            patient.folioPatient = item.Value;
+                            break;
+
+                        case "namePatient":
+                            patient.namePatient = item.Value;
+                            break;
+
+                        case "lastNamePatient":
+                            patient.lastNamePatient = item.Value;
+                            break;
+
+                        case "adressPatient":
+                            patient.adressPatient = item.Value;
+                            break;
+
+                        case "dateService":
+                            patient.dateService = item.Value;
+                            break;
+
+                        case "auxDate":
+                            patient.auxDate = item.Value;
+                            break;
+
+                        case "hourService":
+                            patient.hourService = item.Value;
+                            break;
+                    }
+                }
+
+                patients.Add(patient);
+            }
+
+            return patients;
+        }
+
+        public List<Ticket> getAllPatientForAdminTodayNocturnTicket(int p, string auxDate)
+        {
+            List<Dictionary<string, string>> listOfDictionary = billingModel.getPatientsByAdminNocturnTodayTicket(p, auxDate);
+            List<Ticket> patients = new List<Ticket>();
+
+
+            if (listOfDictionary == null)
+            {
+                return null;
+            }
+
+            foreach (var token in listOfDictionary)
+            {
+                Ticket patient = new Ticket();
+                foreach (var item in token)
+                {
+                    switch (item.Key)
+                    {
+                        case "idServiceData":
+                            patient.idServiceData = int.Parse(item.Value);
+                            break;
+
+                        case "folioPatient":
+                            patient.folio = item.Value;
+                            break;
+
+                        case "namePatient":
+                            patient.namePatien = item.Value;
+                            break;
+
+                        case "lastNamePatient":
+                            patient.lastNamePatient = item.Value;
+                            break;
+
+                        case "adressPatient":
+                            patient.adressPatient = item.Value;
+                            break;
+
+                        case "dateService":
+                            patient.dateService = item.Value;
+                            break;
+
+                        case "auxDate":
+                            patient.auxDate = item.Value;
+                            break;
+
+                        case "hourService":
+                            patient.hourService = item.Value;
+                            break;
+
+                        case "type":
+                            patient.type = item.Value;
+                            break;
+                    }
+                }
+
+                patients.Add(patient);
+            }
+
+            return patients;
+        }
+
+        public List<Ticket> getAllPatientForAdminAuxTicket(int p, string auxDateYesterday, string auxDateToday)
+        {
+            List<Dictionary<string, string>> listOfDictionary = billingModel.getPatientsByAdminNocturnTicket(p, auxDateYesterday, auxDateToday);
+
+            Console.WriteLine(listOfDictionary + " count: " + listOfDictionary.Count);
+
+            List<Ticket> patients = new List<Ticket>();
+
+
+            if (listOfDictionary == null)
+            {
+                return null;
+            }
+
+            foreach (var token in listOfDictionary)
+            {
+                Ticket patient = new Ticket();
+                foreach (var item in token)
+                {
+                    switch (item.Key)
+                    {
+                        case "idServiceData":
+                            patient.idServiceData = int.Parse(item.Value);
+                            break;
+
+                        case "folioPatient":
+                            patient.folio = item.Value;
+                            break;
+
+                        case "namePatient":
+                            patient.namePatien = item.Value;
+                            break;
+
+                        case "lastNamePatient":
+                            patient.lastNamePatient = item.Value;
+                            break;
+
+                        case "adressPatient":
+                            patient.adressPatient = item.Value;
+                            break;
+
+                        case "dateService":
+                            patient.dateService = item.Value;
+                            break;
+
+                        case "auxDate":
+                            patient.auxDate = item.Value;
+                            break;
+
+                        case "hourService":
+                            patient.hourService = item.Value;
+                            break;
+
+                        case "type":
+                            patient.type = item.Value;
+                        break;
+                    }
+                }
+
+                patients.Add(patient);
+            }
+
+            return patients;
+        }
+
+        public List<Ticket> getAllPatientForAdminTicket(int idAdmin, string date)
+        {
+            List<Ticket> patients = new List<Ticket>();
+            Ticket patient;
+
+            List<Dictionary<string, string>> patientsDictionary = billingModel.getPatientsByAdminTicket(idAdmin, date);
+
+            if (patientsDictionary == null)
+            {
+                return null;
+            }
+
+            foreach (var token in patientsDictionary)
+            {
+                patient = new Ticket();
+                foreach (var item in token)
+                {
+                    switch (item.Key)
+                    {
+                        case "idServiceData":
+                            patient.idServiceData = int.Parse(item.Value);
+                            break;
+
+                        case "folioPatient":
+                            patient.folio = item.Value;
+                            break;
+
+                        case "namePatient":
+                            patient.namePatien = item.Value;
+                            break;
+
+                        case "lastNamePatient":
+                            patient.lastNamePatient = item.Value;
+                            break;
+
+                        case "adressPatient":
+                            patient.adressPatient = item.Value;
+                            break;
+
+                        case "dateService":
+                            patient.dateService = item.Value;
+                            break;
+
+                        case "auxDate":
+                            patient.auxDate = item.Value;
+                            break;
+
+                        case "hourService":
+                            patient.hourService = item.Value;
+                        break;
+
+                        case "type":
+                            patient.type = item.Value;
+                        break;
+                    }
+                }
+
+                patients.Add(patient);
+            }
+
+            return patients;
         }
     }
 }

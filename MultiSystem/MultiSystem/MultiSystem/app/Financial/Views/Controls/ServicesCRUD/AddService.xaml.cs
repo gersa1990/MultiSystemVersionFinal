@@ -113,7 +113,7 @@ namespace MultiSystem.app.Financial.Views.Controls
                 this.amountService = int.Parse(amountServiceField.Text);
                 this.enableBtnSave();
             }
-            catch(Exception exc)
+            catch
             {
                 btnAddService.IsEnabled = false;
                 MessageBox.Show("El monto debe ser solo números.");

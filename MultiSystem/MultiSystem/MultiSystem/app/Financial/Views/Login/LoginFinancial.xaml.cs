@@ -30,6 +30,7 @@ namespace MultiSystem.app.Financial.views.Login
             this.home = mainWindow;
             this.InitializeComponent();
             this.checkOrUncheckPassword(null,null);
+           
         }
 
 		private void sessionIgniter(object sender, System.Windows.RoutedEventArgs e)

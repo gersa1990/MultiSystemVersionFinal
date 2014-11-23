@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MultiSystem.app.Financial.Models.BillingModel
 {
@@ -47,9 +48,9 @@ namespace MultiSystem.app.Financial.Models.BillingModel
             return this.db.Delete("financialresources", "servicesprovided", whereParameters);
         }
 
-        public List<Dictionary<string, string>> getPatientsByAdmin(int idAdmin)
+        public List<Dictionary<string, string>> getPatientsByAdmin(int idAdmin, string date)
         {
-            return this.db.Query("financialresources", "SELECT * FROM servicesData INNER JOIN servicesprovided ON servicesdata.idServiceData = servicesprovided.idServiceData WHERE servicesProvided.idAdmin = " + idAdmin + "  GROUP BY servicesdata.folioPatient ASC  ").resultArray();
+            return this.db.Query("financialresources", "SELECT * FROM servicesData INNER JOIN servicesprovided ON servicesdata.idServiceData = servicesprovided.idServiceData WHERE servicesProvided.idAdmin = " + idAdmin + " AND servicesData.dateService = '"+date+"'  GROUP BY servicesdata.folioPatient ASC  ").resultArray();
         }
 
         public int updateBilling(Dictionary<string, string> setParameters, Dictionary<string, string> whereParameters)
@@ -70,6 +71,32 @@ namespace MultiSystem.app.Financial.Models.BillingModel
         public int cancelServiceModel(Dictionary<string, string> whereParameters, Dictionary<string, string> setParameters)
         {
             return this.db.Update("financialresources", "servicesprovided", setParameters, whereParameters);
+        }
+
+        public List<Dictionary<string, string>> getPatientsByAdminNocturn(int idAdmin, string auxDateYesterday, string auxDateToday)
+        {
+            string query = "SELECT *  FROM (SELECT servicesData.idServiceData, servicesData.dateService, servicesData.hourService, servicesdata.folioPatient, servicesdata.namePatient, servicesdata.lastNamePatient, servicesdata.adressPatient, servicesdata.auxDate, servicesprovided.idProvided, servicesprovided.idService, servicesprovided.idAdmin, servicesprovided.serviceCanceled, servicesprovided.reasonDiscount, servicesprovided.amountWithDiscount FROM servicesData INNER JOIN servicesprovided ON servicesdata.idServiceData = servicesprovided.idServiceData WHERE servicesProvided.idAdmin = 6) AS results  WHERE ( dateService = '" + auxDateYesterday + "' AND hourService > '19:00') OR ( dateService = '" + auxDateToday + "' AND hourService < '09:00')";
+            return this.db.Query("financialresources", "SELECT *  FROM (SELECT servicesData.idServiceData, servicesData.dateService, servicesData.hourService, servicesdata.folioPatient, servicesdata.namePatient, servicesdata.lastNamePatient, servicesdata.adressPatient, servicesdata.auxDate, servicesprovided.idProvided, servicesprovided.idService, servicesprovided.idAdmin, servicesprovided.serviceCanceled, servicesprovided.reasonDiscount, servicesprovided.amountWithDiscount FROM servicesData INNER JOIN servicesprovided ON servicesdata.idServiceData = servicesprovided.idServiceData WHERE servicesProvided.idAdmin = 6) AS results  WHERE ( dateService = '" + auxDateYesterday + "' AND hourService > '19:00') OR ( dateService = '" + auxDateToday + "' AND hourService < '09:00')").resultArray();
+        }
+
+        public List<Dictionary<string, string>> getPatientsByAdminNocturnToday(int idAdmin, string auxDate)
+        {
+            return this.db.Query("financialresources", "SELECT * FROM servicesprovided INNER JOIN servicesData ON servicesdata.idServiceData = servicesprovided.idServiceData INNER JOIN services ON services.idService = servicesprovided.idService  WHERE servicesprovided.idAdmin = " + idAdmin + " AND servicesData.dateService = '"+auxDate+"'  ").resultArray();
+        }
+
+        public List<Dictionary<string, string>> getPatientsByAdminTicket(int idAdmin, string date)
+        {
+            return this.db.Query("financialresources", "SELECT * FROM servicesData INNER JOIN servicesprovided ON servicesdata.idServiceData = servicesprovided.idServiceData INNER JOIN services ON services.idService = servicesprovided.idService WHERE servicesProvided.idAdmin = " + idAdmin + " AND servicesData.dateService = '" + date + "'  ").resultArray();
+        }
+
+        public List<Dictionary<string, string>> getPatientsByAdminNocturnTicket(int p, string auxDateYesterday, string auxDateToday)
+        {
+            return this.db.Query("financialresources", "SELECT *  FROM (SELECT servicesData.idServiceData, servicesData.dateService, servicesData.hourService, servicesdata.folioPatient, servicesdata.namePatient, servicesdata.lastNamePatient, servicesdata.adressPatient, servicesdata.auxDate, services.type, services.amountPrice, services.keyPrice, servicesprovided.idProvided, servicesprovided.idService, servicesprovided.idAdmin, servicesprovided.serviceCanceled, servicesprovided.reasonDiscount, servicesprovided.amountWithDiscount FROM servicesData INNER JOIN servicesprovided ON servicesprovided.idServiceData = servicesData.idServiceData INNER JOIN services ON services.idService = servicesprovided.idService WHERE servicesProvided.idAdmin = "+p+") AS results  WHERE ( dateService = '"+auxDateYesterday+"' AND hourService > '19:00') OR ( dateService = '"+auxDateToday+"' AND hourService < '09:00')").resultArray();
+        }
+
+        public List<Dictionary<string, string>> getPatientsByAdminNocturnTodayTicket(int idAdmin, string auxDate)
+        {
+            return this.db.Query("financialresources", "SELECT * FROM servicesprovided INNER JOIN servicesData ON servicesdata.idServiceData = servicesprovided.idServiceData INNER JOIN services ON services.idService = servicesprovided.idService  WHERE servicesprovided.idAdmin = " + idAdmin + " AND servicesData.dateService = '"+auxDate+"'  ").resultArray();
         }
     }
 }

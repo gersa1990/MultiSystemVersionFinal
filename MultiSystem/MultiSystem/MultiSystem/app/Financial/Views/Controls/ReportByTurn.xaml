@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="189,9" TextWrapping="Wrap" VerticalAlignment="Center" Width="412" Height="37" FontWeight="Bold" FontSize="18.667" FontFamily="Arial Black" Grid.Column="1"><Run Language="es-mx" Text="IMPRIMIR REPORTE POR TURNO"/></TextBlock>
         <Label x:Name="logReportByTurn" Content="" HorizontalAlignment="Center" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="488" Grid.Column="1" Height="30"/>
-        <Button Content="Generar reporte" Grid.Column="1" HorizontalAlignment="Left" Margin="256,27,0,0" Grid.Row="2" VerticalAlignment="Top" Width="164" Height="51" Click="generateReport"/>
+        <Button Content="Generar reporte" Grid.Column="1" HorizontalAlignment="Left" Margin="257,27,0,0" Grid.Row="2" VerticalAlignment="Top" Width="164" Height="51" Click="generateReportNow"/>
 
     </Grid>
 </UserControl>

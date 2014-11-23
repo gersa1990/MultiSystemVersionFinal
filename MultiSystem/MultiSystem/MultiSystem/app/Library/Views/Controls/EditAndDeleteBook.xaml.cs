@@ -73,7 +73,7 @@ namespace MultiSystem.app.Library.Views.Controls
             {
                 idBook = ((Book)dataBooks.SelectedItem).idBook;
             }
-            catch (Exception exc)
+            catch
             {
                 MessageBox.Show("Debes seleccionar un libro a eliminar.");
                 idBook = -1;
@@ -106,7 +106,7 @@ namespace MultiSystem.app.Library.Views.Controls
             {
                 idBook = ((Book)dataBooks.SelectedItem).idBook;
             }
-            catch(Exception exc)
+            catch
             {
                 MessageBox.Show("Debes seleccionar un libro a eliminar.");
                 idBook = -1;
@@ -169,7 +169,7 @@ namespace MultiSystem.app.Library.Views.Controls
                 buttonDelete.IsEnabled = true;
                 buttonEdit.IsEnabled = true;
             }
-            catch (Exception exc)
+            catch 
             {
                 buttonDelete.IsEnabled = false;
                 buttonEdit.IsEnabled = false;

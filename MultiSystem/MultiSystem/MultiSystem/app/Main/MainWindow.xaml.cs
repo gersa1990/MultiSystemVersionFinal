@@ -42,6 +42,10 @@ namespace MultiSystem
 
             //ONLY FOR TEST
             //this.loginLibraryDiscrete();
+
+            //TEST 
+            //this.loginDiscreteFinancial();
+            //this.loginLibraryDiscrete();
         }
 
         private void loginLibraryDiscrete()

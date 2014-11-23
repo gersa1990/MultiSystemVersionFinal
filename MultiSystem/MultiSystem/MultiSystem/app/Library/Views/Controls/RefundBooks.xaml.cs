@@ -113,7 +113,7 @@ namespace MultiSystem.app.Library.Views.Controls
             {
                 idBook = ((LoanBook)dataResults.SelectedItem).idBook;
             }
-            catch (Exception exc)
+            catch
             {
                 MessageBox.Show("Debes seleccionar un libro para la devolución.");
                 idBook = -1;
@@ -144,7 +144,7 @@ namespace MultiSystem.app.Library.Views.Controls
                 idBook = ((LoanBook)dataResults.SelectedItem).idBook;
                 buttonRefund.IsEnabled = true;
             }
-            catch (Exception exc)
+            catch 
             {
                 buttonRefund.IsEnabled = false;
             }
@@ -153,14 +153,7 @@ namespace MultiSystem.app.Library.Views.Controls
 
             }
 
-            /*if (grid == null)
-            {
-                buttonRefund.IsEnabled = false;
-            }
-            else
-            {
-                buttonRefund.IsEnabled = true;
-            }*/
+           
         }
     }
 }

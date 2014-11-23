@@ -18,7 +18,6 @@ namespace MultiSystem.app.Library.Controllers
 	public class AdminController
 	{
         private List<ParametersLogin> fields;
-        private List<Dictionary<string, string>> founded;
         private ParametersLogin objParameter;
 		private AdminModel adminModel;
 

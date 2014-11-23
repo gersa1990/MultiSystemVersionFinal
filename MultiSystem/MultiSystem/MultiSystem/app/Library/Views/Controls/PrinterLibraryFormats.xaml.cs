@@ -65,7 +65,7 @@ namespace MultiSystem.app.Library.Views.Controls
                         popUpCustom.setDataForAlert("Sin libros", "No existen registros en esta fecha.", typeOfAlertEnum.warning);
                         popUpCustom.Show();
                     }
-                    catch(Exception exc)
+                    catch
                     {
                         MessageBox.Show("No existen registros en esta fecha.");
 

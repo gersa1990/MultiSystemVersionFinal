@@ -82,7 +82,7 @@ namespace MultiSystem.app.Financial.View.ModalView
             {
                 this.formatedPriceReal = int.Parse(this.service.amountPrice.ToString() + "", NumberStyles.Currency);
             }
-            catch (Exception e)
+            catch
             {
                 String precio = this.service.amountPrice.Substring(1, this.service.amountPrice.Length - 4);
                 precio = precio.Replace(",", "");
