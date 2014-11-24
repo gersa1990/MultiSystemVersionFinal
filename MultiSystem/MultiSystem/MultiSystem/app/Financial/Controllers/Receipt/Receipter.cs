@@ -28,15 +28,6 @@ namespace MultiSystem.app.Financial.Controllers.Receipt
 
         public Receipter(List<Bill> listOfBillsAdded, Patient patient)
         {
-            MessageBox.Show("list"+listOfBillsAdded.Count);
-
-
-            foreach (Bill bill in listOfBillsAdded)
-            {
-                MessageBox.Show(bill.keyPrice);
-            }
-
-
             this.listOfBillsAdded = listOfBillsAdded;
             this.patient = patient;
         }

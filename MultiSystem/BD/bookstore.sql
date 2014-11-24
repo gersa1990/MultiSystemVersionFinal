@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-10-2014 a las 01:33:07
+-- Tiempo de generación: 24-11-2014 a las 12:12:48
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.3.13
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
   `typeAdmin` int(11) NOT NULL,
   `turnAdmin` varchar(50) NOT NULL,
   PRIMARY KEY (`idAdmin`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=105 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `admins`
@@ -45,7 +45,8 @@ INSERT INTO `admins` (`idAdmin`, `nameAdmin`, `lastNameAdmin`, `userNameAdmin`, 
 (1, 'administrador ', 'principal', 'adminLibrary', 'adminLibrary', 1, 'Todo el día'),
 (2, 'Jose', 'Antonio Chavez', 'admin', 'admin', 2, 'Matutino'),
 (3, 'administrador ', 'vespertino', 'adminLate', 'adminLate', 3, 'Vespertino'),
-(4, '..', '..', 'adminGral', 'adminGral', 100, 'Libre');
+(4, '..', '..', 'adminGral', 'adminGral', 100, 'Libre'),
+(5, 'asd', 'asd', 'asd', 'asd', 7, 'asd');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `generesbook` (
   `nameGenereBook` varchar(100) NOT NULL,
   `descriptionGenereBook` varchar(100) NOT NULL,
   PRIMARY KEY (`idGenereBook`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `generesbook`
@@ -115,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `loansbook` (
   `dateLoan` varchar(10) NOT NULL,
   `dateDeliveryLoan` varchar(10) NOT NULL,
   PRIMARY KEY (`idLoan`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
 
 --
 -- Volcado de datos para la tabla `loansbook`
@@ -162,7 +163,8 @@ INSERT INTO `loansbook` (`idLoan`, `idBook`, `hashLoan`, `petitionDay`, `nameRea
 (56, 20, '2014935', '2014-09-09', 'Angel', '17:28', '21:40', '0000-00-00', '2014-09-09'),
 (57, 22, '20141018', '2014-10-03', 'TEST', '20:17', '00:00', '0000-00-00', '0000-00-00'),
 (58, 6, '20141024', '2014-10-03', 'asd', '20:24', '20:25', '2014-10-03', '2014-10-03'),
-(59, 20, '2014103526', '2014-10-08', 'pepe', '23:36', '00:00', '2014-10-08', '0000-00-00');
+(59, 20, '2014103526', '2014-10-08', 'pepe', '23:36', '00:00', '2014-10-08', '0000-00-00'),
+(60, 6, '2014112352', '2014-11-09', 'gersa', '23:24', '00:00', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
