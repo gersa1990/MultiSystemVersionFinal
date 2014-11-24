@@ -110,6 +110,18 @@ namespace MultiSystem.app.Financial.Controllers
         public string reasonDiscount { get; set; }
         public int amountWithDiscount { get; set; }
         public string folio { get; set; }
+
+        public int serviceCanceled { get; set; }
+
+        public void description() 
+        {
+            Console.WriteLine(" idServiceData: " + idServiceData + " \nnamePatien: " + namePatien + " \nlastName: " + lastNamePatient);
+            Console.WriteLine(" address: " + adressPatient + " \ndateService " + dateService + " \nhourService " + hourService);
+            Console.WriteLine(" auxDate: " + auxDate + " \nidService: " + idService + " \nkeyPrice: " + keyPrice + " \ndescriptionPrice: " + descriptionPrice);
+            Console.WriteLine(" amountPrice" + amountPrice + " \ntype: " + type + " \nreasonDiscount: " + reasonDiscount);
+            Console.WriteLine(" amountWithDiscount: " + amountWithDiscount + " folio: " + folio + "\n\n");
+            Console.WriteLine(" cancelado: "+serviceCanceled);
+        }
     }
 
     /// <summary>

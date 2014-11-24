@@ -130,6 +130,7 @@
     <Compile Include="app\Financial\Controllers\Receipt\Receipter.cs" />
     <Compile Include="app\Financial\Controllers\Services\ServicesFinancialController.cs" />
     <Compile Include="app\Financial\Controllers\TypesAdmin\TypeOfAdminsController.cs" />
+    <Compile Include="app\Financial\CreatorWorkBook\CreatorReportByMonthly.cs" />
     <Compile Include="app\Financial\CreatorWorkBook\CreatorReportByTurn.cs" />
     <Compile Include="app\Financial\Models\Admin\AdminModelFinancial.cs" />
     <Compile Include="app\Financial\Models\BillingModel\BillingModel.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="app\Financial\Views\Controls\BillingUser.xaml.cs">
       <DependentUpon>BillingUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="app\Financial\Views\Controls\CreatorReportByMonth.cs" />
     <Compile Include="app\Financial\Views\Controls\CRUD\Admins\AddAdmin.xaml.cs">
       <DependentUpon>AddAdmin.xaml</DependentUpon>
     </Compile>
@@ -153,6 +155,9 @@
     </Compile>
     <Compile Include="app\Financial\Views\Controls\CRUD\Admins\EditAdmin.xaml.cs">
       <DependentUpon>EditAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="app\Financial\Views\Controls\MonthlyReport.xaml.cs">
+      <DependentUpon>MonthlyReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="app\Financial\Views\Controls\PrivateSection\AddAdminPrivateSection.xaml.cs">
       <DependentUpon>AddAdminPrivateSection.xaml</DependentUpon>
@@ -308,6 +313,10 @@
     <Page Include="app\Financial\Views\Controls\CRUD\Admins\EditAdmin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="app\Financial\Views\Controls\MonthlyReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="app\Financial\Views\Controls\PrivateSection\AddAdminPrivateSection.xaml">
       <SubType>Designer</SubType>

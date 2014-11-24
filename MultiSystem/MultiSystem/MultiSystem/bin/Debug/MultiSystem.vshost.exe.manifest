@@ -123,14 +123,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MultiSystem.exe" size="1521152">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MultiSystem.exe" size="1536000">
       <assemblyIdentity name="MultiSystem" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>S3YLTuiR3Ck0EH9cQgae0L0Y2wvDM0uKYCeGvfoV1kE=</dsig:DigestValue>
+        <dsig:DigestValue>dv+MKJKTSOGzPqE5b/077Tc03cm5HUvC5LFFnLCDpis=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

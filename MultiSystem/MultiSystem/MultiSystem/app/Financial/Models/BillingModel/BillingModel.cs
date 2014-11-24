@@ -98,5 +98,14 @@ namespace MultiSystem.app.Financial.Models.BillingModel
         {
             return this.db.Query("financialresources", "SELECT * FROM servicesprovided INNER JOIN servicesData ON servicesdata.idServiceData = servicesprovided.idServiceData INNER JOIN services ON services.idService = servicesprovided.idService  WHERE servicesprovided.idAdmin = " + idAdmin + " AND servicesData.dateService = '"+auxDate+"'  ").resultArray();
         }
+
+        public List<Dictionary<string, string>> getPatientsByMonthlyReport(string strDateInitial, string strDateFinal)
+        {
+            string query = "SELECT servicesprovided.idProvided, servicesprovided.idServiceData, servicesprovided.idService, servicesprovided.idAdmin, servicesprovided.serviceCanceled, servicesprovided.reasonDiscount, servicesprovided.amountWithDiscount, servicesdata.folioPatient, servicesdata.namePatient, servicesdata.lastNamePatient, servicesdata.adressPatient, services.type, services.keyPrice, services.amountPrice, services.descriptionPrice,  servicesprovided.serviceCanceled  FROM servicesprovided INNER JOIN servicesData ON servicesdata.idServiceData = servicesprovided.idServiceData INNER JOIN services ON services.idService = servicesprovided.idService   WHERE servicesdata.dateService BETWEEN   '" + strDateInitial + "' AND '" + strDateFinal + "'  ";
+
+            Console.WriteLine(query);
+
+            return this.db.Query("financialresources", "SELECT servicesprovided.idProvided, servicesprovided.idServiceData, servicesprovided.idService, servicesprovided.idAdmin, servicesprovided.serviceCanceled, servicesprovided.reasonDiscount, servicesprovided.amountWithDiscount, servicesdata.folioPatient, servicesdata.namePatient, servicesdata.lastNamePatient, servicesdata.adressPatient, services.type, services.keyPrice, services.amountPrice, services.descriptionPrice,  servicesprovided.serviceCanceled  FROM servicesprovided INNER JOIN servicesData ON servicesdata.idServiceData = servicesprovided.idServiceData INNER JOIN services ON services.idService = servicesprovided.idService   WHERE servicesdata.dateService BETWEEN   '"+strDateInitial + "' AND '" + strDateFinal + "'  ").resultArray();
+        }
     }
 }

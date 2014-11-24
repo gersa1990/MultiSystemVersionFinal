@@ -55,17 +55,10 @@
                 </Grid>
             </TabItem>
 
-
-            <TabItem Header="Reporte mensual " x:Name="reporterByMonth">
-                <Grid Background="#FFE5E5E5">
-
-                </Grid>
-            </TabItem>
-
         </TabControl>
 
         <Rectangle x:Name="rectangleBottom" Fill="Black" Stroke="Black" Width="auto" Grid.Row="2"  Grid.RowSpan="2" />
-        <Label x:Name="clockBottom2" Content="Derechos reservados 2014&#xA;" Foreground="White" FontSize="14" Grid.Row="2"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="32" Width="382" />
+        <Label x:Name="clockBottom2" Content="Derechos reservados 2014&#xA;" Foreground="White" FontSize="14" Grid.Row="2"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="32" Width="417" />
         <Label Grid.Row="2" x:Name="nameAdmin" Content="Label" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="495" Height="32" Foreground="White"  FontSize="14" />
 
 

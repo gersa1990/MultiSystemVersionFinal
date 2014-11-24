@@ -752,6 +752,97 @@ namespace MultiSystem.app.Financial.Controllers.BillingController
                         case "type":
                             patient.type = item.Value;
                         break;
+
+                        case "serviceCanceled":
+                            patient.serviceCanceled = int.Parse(item.Value);
+                        break;
+
+                        case "reasonDiscount":
+                            patient.reasonDiscount = item.Value;
+                        break;
+                    }
+                }
+
+                patients.Add(patient);
+            }
+
+            return patients;
+        }
+
+        public List<Ticket> getBillingsForMonthlyReport(string strDateInitial, string strDateFinal)
+        {
+            List<Ticket> patients = new List<Ticket>();
+            Ticket patient;
+
+            List<Dictionary<string, string>> patientsDictionary = billingModel.getPatientsByMonthlyReport(strDateInitial, strDateFinal);
+
+            if (patientsDictionary == null)
+            {
+                return null;
+            }
+
+            foreach (var token in patientsDictionary)
+            {
+                patient = new Ticket();
+                foreach (var item in token)
+                {
+                    switch (item.Key)
+                    {
+                        case "idServiceData":
+                            patient.idServiceData = int.Parse(item.Value);
+                        break;
+
+                        case "folioPatient":
+                            patient.folio = item.Value;
+                        break;
+
+                        case "namePatient":
+                            patient.namePatien = item.Value;
+                        break;
+
+                        case "lastNamePatient":
+                            patient.lastNamePatient = item.Value;
+                        break;
+
+                        case "adressPatient":
+                            patient.adressPatient = item.Value;
+                        break;
+
+                        case "dateService":
+                            patient.dateService = item.Value;
+                        break;
+
+                        case "auxDate":
+                            patient.auxDate = item.Value;
+                        break;
+
+                        case "hourService":
+                            patient.hourService = item.Value;
+                        break;
+
+                        case "descriptionPrice":
+                            patient.descriptionPrice = item.Value;
+                        break;
+
+                        case "type":
+                            patient.type = item.Value;
+                        break;
+
+                        case "amountPrice":
+                            patient.amountPrice = int.Parse(item.Value);
+                        break;
+
+                        case "amountWithDiscount":
+                            patient.amountWithDiscount = int.Parse(item.Value);
+                        break;
+
+                        case "serviceCanceled":
+                            patient.serviceCanceled = int.Parse(item.Value);
+                        break;
+
+                        case "reasonDiscount":
+                            patient.reasonDiscount = item.Value;
+                        break;
                     }
                 }
 

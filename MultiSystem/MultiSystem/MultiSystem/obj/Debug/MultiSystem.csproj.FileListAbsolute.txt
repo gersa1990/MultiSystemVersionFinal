@@ -363,3 +363,6 @@ C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSy
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\MultiSystem.application
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\MultiSystem.exe
 C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\MultiSystem.pdb
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\MultiSystem.csprojResolveAssemblyReference.cache
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\MonthlyReport.baml
+C:\Users\Gersain\Desktop\MultiSystemVersionFinal\MultiSystem\MultiSystem\MultiSystem\obj\Debug\app\Financial\Views\Controls\MonthlyReport.g.cs

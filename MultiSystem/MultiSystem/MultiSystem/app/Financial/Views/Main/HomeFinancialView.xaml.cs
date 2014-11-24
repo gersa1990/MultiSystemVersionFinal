@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Globalization;
 using System.Windows.Forms;
+using MultiSystem.app.Financial.Views.Controls;
+using MultiSystem.app.Financial.Controllers.AdminController;
 
 namespace MultiSystem.app.Financial.Views.Main
 {
@@ -46,6 +48,20 @@ namespace MultiSystem.app.Financial.Views.Main
 	
 		private void customizeWindow()
 		{
+
+            if (AdminSingleton.Singleton.getAdmin().idTypeAdmin == 1)
+            {
+                MonthlyReport monthlyRep = new MonthlyReport();
+
+                TabItem tab = new TabItem();
+                tab.Header = string.Format("Reporte mensual");
+                tab.Name = string.Format("reportMonthly");
+                tab.Content = monthlyRep;
+
+                controlMain.Items.Add(tab);
+                controlMain.Items.MoveCurrentToLast();
+            }
+            
             string welcome = "BIENVENIDO: ";
 
 			foreach(var _admin in this.admin)
